@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Datenschutzerklärung – BVA-Service</title>
+<meta name="description" content="Datenschutzerklärung der BVA-Service – Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO und TDDDG." />
+<meta name="robots" content="index, follow" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_bva.png?v=7" />
+<link rel="shortcut icon" type="image/png" href="assets/favicon_bva.png?v=7" />
+<link rel="apple-touch-icon" href="assets/favicon_bva.png?v=7" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-alt: #f5f5f7;
+    --ink: #1d1d1f;
+    --ink-soft: #424245;
+    --muted: #6e6e73;
+    --line: #d2d2d7;
+    --gold: #c0954a;
+    --gold-deep: #7b4e2d;
+    --red: #1f5d48;
+    --paper: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'Inter', 'Segoe UI', system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+  .legal-container { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+  a { color: var(--gold-deep); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s, color .2s; }
+  a:hover { border-bottom-color: var(--gold-deep); }
+  h1, h2 { font-weight: 600; letter-spacing: -0.025em; color: var(--ink); }
+  h1 { font-size: clamp(40px, 6vw, 64px); line-height: 1.04; margin-bottom: 12px; letter-spacing: -0.035em; }
+  h2 { font-size: clamp(22px, 3vw, 30px); margin-top: 56px; margin-bottom: 16px; padding-top: 32px; border-top: 1px solid var(--line); }
+  h2:first-of-type { border-top: none; padding-top: 0; margin-top: 32px; }
+  h3 { font-size: 12px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold-deep); }
+  p { margin-bottom: 14px; color: var(--ink-soft); }
+  ul { margin: 8px 0 20px 22px; }
+  li { margin-bottom: 6px; color: var(--ink-soft); }
+  strong { color: var(--ink); font-weight: 600; }
+  .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-deep); display: inline-block; margin-bottom: 16px; }
+  .meta-block { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 14px; padding: 24px 28px; margin: 24px 0; }
+  .meta-block p { margin-bottom: 4px; color: var(--ink); }
+  .meta-block p.small { color: var(--muted); font-size: 14px; margin-top: 8px; }
+  .updated { color: var(--muted); font-size: 13px; margin-bottom: 32px; }
+  .toc { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 14px; padding: 24px 28px; margin: 32px 0 56px; }
+  .toc h3 { margin-top: 0; }
+  .toc ol { margin: 0; padding-left: 20px; }
+  .toc ol li { margin-bottom: 4px; }
+  .toc a { color: var(--ink); }
+  .toc a:hover { color: var(--gold-deep); }
+
+  /* NAV */
+  nav#nav {
+    position: sticky; top: 0; z-index: 100;
+    background: color-mix(in srgb, var(--bg) 86%, transparent);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(90deg, #1d1d1f 0 33.3%, var(--red) 33.3% 66.6%, var(--gold) 66.6% 100%) 1;
+    padding: 14px 0;
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+  .logo {
+    display: inline-flex; align-items: center; line-height: 0;
+    padding: 7px 14px; background: #ffffff; border-radius: 14px; border-bottom: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10), inset 0 0 0 1px rgba(0,0,0,0.04);
+  }
+  .logo:hover { border-bottom: none; }
+  .logo img { height: 60px; width: auto; display: block; }
+  @media (max-width: 640px) { .logo img { height: 46px; } }
+  .nav-back { font-size: 14px; font-weight: 500; color: var(--ink-soft); border-bottom: none; }
+  .nav-back:hover { color: var(--ink); border-bottom: none; }
+
+  /* MAIN */
+  main.legal { padding: 72px 0 120px; }
+
+  /* FOOTER */
+  footer { background: #0d0d0f; color: rgba(255,255,255,0.7); padding: 56px 0 56px; margin-top: 96px; }
+  footer .footer-bottom { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-size: 13px; }
+  footer a { color: rgba(255,255,255,0.7); border-bottom: 1px solid transparent; }
+  footer a:hover { color: #fff; border-bottom-color: rgba(255,255,255,0.4); }
+  .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+
+  @media (max-width: 640px) {
+    main.legal { padding: 48px 0 80px; }
+    h2 { margin-top: 40px; padding-top: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="/" class="logo" aria-label="BVA-Service zur Startseite">
+      <img src="assets/logo_bva.webp?v=12" alt="BVA-Service" />
+    </a>
+    <a href="/" class="nav-back">← Zurück zur Startseite</a>
+  </div>
+</nav>
+
+<main class="legal">
+  <div class="legal-container">
+
+    <span class="eyebrow">Rechtliches</span>
+    <h1>Datenschutz&shy;erklärung</h1>
+    <p class="updated">Stand: Mai 2026</p>
+
+    <p>Wir freuen uns über Ihr Interesse an BVA-Service. Der Schutz Ihrer personenbezogenen Daten ist uns ein wichtiges Anliegen. Im Folgenden informieren wir Sie gemäß Art. 13 und 14 Datenschutz-Grundverordnung (DSGVO) sowie nach dem Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz (TDDDG) darüber, welche personenbezogenen Daten wir bei Ihrem Besuch auf unserer Website verarbeiten und zu welchem Zweck dies geschieht.</p>
+
+    <div class="toc">
+      <h3>Inhalt</h3>
+      <ol>
+        <li><a href="#verantwortlicher">Verantwortlicher</a></li>
+        <li><a href="#hosting">Hosting und Server-Logfiles</a></li>
+        <li><a href="#ssl">SSL-/TLS-Verschlüsselung</a></li>
+        <li><a href="#fonts">Eingebundene Schriftarten (Google Fonts)</a></li>
+        <li><a href="#kontakt">Kontaktaufnahme (Formular, E-Mail, Telefon)</a></li>
+        <li><a href="#speicherdauer">Speicherdauer</a></li>
+        <li><a href="#rechte">Ihre Rechte als betroffene Person</a></li>
+        <li><a href="#beschwerde">Beschwerderecht bei der Aufsichtsbehörde</a></li>
+        <li><a href="#aenderungen">Änderungen dieser Datenschutzerklärung</a></li>
+      </ol>
+    </div>
+
+    <h2 id="verantwortlicher">1. Verantwortlicher</h2>
+    <p>Verantwortlicher im Sinne des Art. 4 Nr. 7 DSGVO ist:</p>
+    <div class="meta-block">
+      <p><strong>JD Finance UG (haftungsbeschränkt)</strong></p>
+      <p>handelnd unter „BVA-Service"</p>
+      <p>Am Keilbusch 6</p>
+      <p>52080 Aachen</p>
+      <p>Vertreten durch die Geschäftsführerin Ankica Grgic</p>
+      <p>Telefon: <a href="tel:+491637787454">0163 7787454</a></p>
+      <p>E-Mail: <a href="mailto:info@bva-service.de">info@bva-service.de</a></p>
+    </div>
+    <p>Ein Datenschutzbeauftragter ist gesetzlich nicht erforderlich. Bei Fragen zum Datenschutz wenden Sie sich bitte direkt an die oben genannten Kontaktdaten.</p>
+
+    <h2 id="hosting">2. Hosting und Server-Logfiles</h2>
+    <p>Wir hosten unsere Website bei der <strong>IONOS SE</strong>, Elgendorfer Straße 57, 56410 Montabaur, Deutschland. Mit dem Hoster besteht ein Vertrag über die Auftragsverarbeitung gemäß Art. 28 DSGVO. Die Server stehen in Deutschland; eine Drittlandübermittlung findet im Rahmen des Hostings nicht statt.</p>
+
+    <h3>Server-Logfiles</h3>
+    <p>Beim Aufruf unserer Website werden durch den Hoster automatisch Informationen in sogenannten Server-Logfiles erfasst, die Ihr Browser übermittelt. Dies sind:</p>
+    <ul>
+      <li>IP-Adresse des anfragenden Geräts (gekürzt bzw. anonymisiert, soweit möglich)</li>
+      <li>Datum und Uhrzeit der Anfrage</li>
+      <li>Aufgerufene Seite/Datei und übertragene Datenmenge</li>
+      <li>HTTP-Statuscode</li>
+      <li>Verwendeter Browser und Betriebssystem</li>
+      <li>Referrer-URL (zuvor besuchte Seite)</li>
+    </ul>
+    <p><strong>Zweck:</strong> Bereitstellung der Website, Gewährleistung der IT-Sicherheit (Angriffsabwehr) und technische Optimierung.</p>
+    <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer technisch fehlerfreien und sicheren Bereitstellung der Website).</p>
+    <p><strong>Speicherdauer:</strong> in der Regel 7 Tage, danach automatische Löschung. Im Fall sicherheitsrelevanter Vorfälle bis zur abschließenden Klärung.</p>
+
+    <h2 id="ssl">3. SSL-/TLS-Verschlüsselung</h2>
+    <p>Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL-/TLS-Verschlüsselung. Sie erkennen eine verschlüsselte Verbindung an der Zeichenfolge „https://" und am Schloss-Symbol in Ihrer Browserzeile. Daten, die Sie an uns übermitteln, können bei aktivierter Verschlüsselung nicht von Dritten mitgelesen werden.</p>
+
+    <h2 id="fonts">4. Eingebundene Schriftarten (Google Fonts)</h2>
+    <p>Diese Website nutzt zur einheitlichen Darstellung von Schriftarten die Schriften „Fraunces" und „Inter Tight". Diese werden beim Aufruf der Website von Servern der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland, geladen. Hierbei wird Ihre IP-Adresse an Google übermittelt; Google kann sie auch in die USA übertragen.</p>
+    <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer ansprechenden und einheitlichen Darstellung unserer Inhalte) sowie § 25 Abs. 2 Nr. 2 TDDDG, soweit die Einbindung technisch erforderlich ist.</p>
+    <p><strong>Drittlandübermittlung:</strong> Eine Übermittlung in die USA ist möglich. Google LLC ist nach dem EU-US Data Privacy Framework zertifiziert; eine geeignete Garantie im Sinne der Art. 44 ff. DSGVO liegt damit vor. Ergänzend bestehen Standardvertragsklauseln.</p>
+    <p><strong>Hinweis:</strong> Es ist geplant, die genannten Schriftarten kurzfristig lokal vom eigenen Server auszuliefern. In diesem Fall entfällt jede Datenübertragung an Google. Diese Erklärung wird entsprechend angepasst.</p>
+    <p>Weitere Informationen zu Google Fonts: <a href="https://developers.google.com/fonts/faq/privacy" target="_blank" rel="noopener">developers.google.com/fonts/faq/privacy</a> und in der Datenschutzerklärung von Google unter <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+
+    <h2 id="kontakt">5. Kontaktaufnahme (Formular, E-Mail, Telefon)</h2>
+
+    <h3>Kontaktformular</h3>
+    <p>Wenn Sie uns über das Kontaktformular auf unserer Website Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten (Vorname, Nachname, E-Mail, Telefon, Nachricht) zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.</p>
+    <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Anbahnung eines Vertragsverhältnisses) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung Ihrer Anfrage).</p>
+
+    <h3>Kontakt per E-Mail oder Telefon</h3>
+    <p>Wenn Sie uns per E-Mail oder Telefon kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten (Name, Anfrage) zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet.</p>
+    <p><strong>Rechtsgrundlage:</strong> wie oben.</p>
+
+    <h2 id="speicherdauer">6. Speicherdauer</h2>
+    <p>Wir speichern personenbezogene Daten nur so lange, wie es zur Erfüllung des jeweiligen Zwecks erforderlich ist oder gesetzliche Aufbewahrungspflichten dies vorschreiben (insbesondere §§ 147 AO, 257 HGB – bis zu 10 Jahre für steuer- und handelsrechtlich relevante Unterlagen). Anfragen, aus denen kein Mandatsverhältnis entsteht, werden spätestens nach 12 Monaten gelöscht, sofern keine berechtigten Gründe für eine längere Aufbewahrung bestehen.</p>
+
+    <h2 id="rechte">7. Ihre Rechte als betroffene Person</h2>
+    <p>Sie haben gegenüber dem Verantwortlichen folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:</p>
+    <ul>
+      <li><strong>Recht auf Auskunft</strong> (Art. 15 DSGVO)</li>
+      <li><strong>Recht auf Berichtigung</strong> (Art. 16 DSGVO)</li>
+      <li><strong>Recht auf Löschung</strong> („Recht auf Vergessenwerden", Art. 17 DSGVO)</li>
+      <li><strong>Recht auf Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)</li>
+      <li><strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+      <li><strong>Widerspruchsrecht</strong> gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 21 DSGVO)</li>
+      <li><strong>Recht auf Widerruf</strong> erteilter Einwilligungen mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO)</li>
+    </ul>
+    <p>Zur Ausübung Ihrer Rechte wenden Sie sich bitte formlos an die unter Ziffer 1 genannten Kontaktdaten.</p>
+
+    <h2 id="beschwerde">8. Beschwerderecht bei der Aufsichtsbehörde</h2>
+    <p>Unbeschadet eines anderweitigen verwaltungsrechtlichen oder gerichtlichen Rechtsbehelfs steht Ihnen das Recht auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde zu, wenn Sie der Ansicht sind, dass die Verarbeitung der Sie betreffenden personenbezogenen Daten gegen die DSGVO verstößt (Art. 77 DSGVO). Für uns als Sitz in Nordrhein-Westfalen zuständig ist:</p>
+    <div class="meta-block">
+      <p><strong>Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen</strong></p>
+      <p>Kavalleriestraße 2–4</p>
+      <p>40213 Düsseldorf</p>
+      <p>Telefon: 0211 38424-0</p>
+      <p>E-Mail: <a href="mailto:poststelle@ldi.nrw.de">poststelle@ldi.nrw.de</a></p>
+      <p>Internet: <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener">www.ldi.nrw.de</a></p>
+    </div>
+
+    <h2 id="aenderungen">9. Änderungen dieser Datenschutzerklärung</h2>
+    <p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen, z.B. bei der Einführung neuer Dienste. Für Ihren erneuten Besuch gilt dann die jeweils aktuelle Fassung.</p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 JD Finance UG (haftungsbeschränkt) · BVA-Service · Aachen</span>
+      <div class="footer-links">
+        <a href="/">Startseite</a>
+        <a href="/impressum">Impressum</a>
+        <a href="/datenschutz">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
