@@ -2276,32 +2276,35 @@
               <stop offset="1" stop-color="#5aad8a" stop-opacity="0"/>
             </linearGradient>
           </defs>
-          <!-- Hauptkurve mit Auf- und Abbewegungen -->
-          <path d="M0,320 C80,300 120,180 180,250 C240,310 280,190 340,280 C400,360 440,140 500,240 C560,330 600,100 660,210 C720,300 750,80 810,180 C870,260 920,60 1000,460"
+          <!-- Hauptkurve: UP → DOWN → UP → DOWN → UP → DOWN (mit Abwärtstrend) -->
+          <path d="M0,350 C50,280 100,150 150,150 C200,150 250,280 300,350 C350,310 400,240 450,240 C500,240 550,280 600,280 C650,290 700,300 750,300 C825,375 900,430 1000,460"
                 fill="none" stroke="#d54444" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <!-- Rote Fläche unter der Kurve -->
-          <path d="M0,320 C80,300 120,180 180,250 C240,310 280,190 340,280 C400,360 440,140 500,240 C560,330 600,100 660,210 C720,300 750,80 810,180 C870,260 920,60 1000,460 L1000,500 L0,500 Z"
+          <!-- Rote Hauptfläche -->
+          <path d="M0,350 C50,280 100,150 150,150 C200,150 250,280 300,350 C350,310 400,240 450,240 C500,240 550,280 600,280 C650,290 700,300 750,300 C825,375 900,430 1000,460 L1000,500 L0,500 Z"
                 fill="url(#redGradient)"/>
-          <!-- Grüne Bereiche wo Kurve nach oben geht (Peaks) -->
-          <path d="M0,320 C80,300 120,180 180,250 L180,500 L0,500 Z" fill="url(#greenGradient)"/>
-          <path d="M280,190 C340,280 400,360 420,360 L420,500 L280,500 Z" fill="url(#greenGradient)"/>
-          <path d="M600,100 C660,210 720,300 730,300 L730,500 L600,500 Z" fill="url(#greenGradient)"/>
-          <path d="M920,60 L1000,460 L1000,500 L920,500 Z" fill="#d54444" opacity="0.25"/>
-          <!-- 3 milestone markers on the wavy curve -->
+          <!-- Grün: Erste Steigung (Punkt 1) -->
+          <path d="M0,350 C50,280 100,150 150,150 L150,500 L0,500 Z" fill="url(#greenGradient)"/>
+          <!-- Grün: Zweite Steigung (Punkt 2 - 40% weniger) -->
+          <path d="M300,350 C350,310 400,240 450,240 L450,500 L300,500 Z" fill="url(#greenGradient)"/>
+          <!-- Grün: Dritte Steigung (Punkt 3 - Substanz) -->
+          <path d="M600,280 C650,290 700,300 750,300 L750,500 L600,500 Z" fill="url(#greenGradient)"/>
+          <!-- Rot am Ende (letzter Abfall) -->
+          <path d="M750,300 C825,375 900,430 1000,460 L1000,500 L750,500 Z" fill="#d54444" opacity="0.35"/>
+          <!-- 3 milestone markers on the curve -->
           <g class="milestone milestone-neg">
-            <line x1="180" y1="250" x2="180" y2="500" stroke="#d54444" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
-            <circle cx="180" cy="250" r="9" fill="#fff" stroke="#d54444" stroke-width="3"/>
-            <circle cx="180" cy="250" r="3.5" fill="#d54444"/>
+            <line x1="150" y1="150" x2="150" y2="500" stroke="#5aad8a" stroke-width="1" stroke-dasharray="3 4" opacity="0.5"/>
+            <circle cx="150" cy="150" r="9" fill="#fff" stroke="#5aad8a" stroke-width="3"/>
+            <circle cx="150" cy="150" r="3.5" fill="#5aad8a"/>
           </g>
           <g class="milestone milestone-neg">
-            <line x1="500" y1="240" x2="500" y2="500" stroke="#d54444" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
-            <circle cx="500" cy="240" r="9" fill="#fff" stroke="#d54444" stroke-width="3"/>
-            <circle cx="500" cy="240" r="3.5" fill="#d54444"/>
+            <line x1="450" y1="240" x2="450" y2="500" stroke="#5aad8a" stroke-width="1" stroke-dasharray="3 4" opacity="0.5"/>
+            <circle cx="450" cy="240" r="9" fill="#fff" stroke="#5aad8a" stroke-width="3"/>
+            <circle cx="450" cy="240" r="3.5" fill="#5aad8a"/>
           </g>
           <g class="milestone milestone-neg">
-            <line x1="810" y1="180" x2="810" y2="500" stroke="#d54444" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
-            <circle cx="810" cy="180" r="9" fill="#fff" stroke="#d54444" stroke-width="3"/>
-            <circle cx="810" cy="180" r="3.5" fill="#d54444"/>
+            <line x1="750" y1="300" x2="750" y2="500" stroke="#5aad8a" stroke-width="1" stroke-dasharray="3 4" opacity="0.5"/>
+            <circle cx="750" cy="300" r="9" fill="#fff" stroke="#5aad8a" stroke-width="3"/>
+            <circle cx="750" cy="300" r="3.5" fill="#5aad8a"/>
           </g>
         </svg>
         <!-- HTML overlay labels matching the right side, styled red -->
