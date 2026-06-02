@@ -2265,7 +2265,7 @@
          aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
       <!-- BEFORE (LEFT, red, jagged falling) — clipped from right; only the LEFT slice that slider has revealed -->
       <div class="compare-side compare-before" id="compareBefore">
-        <svg viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true">
+        <svg viewBox="0 -30 1000 560" preserveAspectRatio="none" aria-hidden="true">
           <defs>
             <linearGradient id="redGradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stop-color="#d54444" stop-opacity="0.40"/>
@@ -2277,19 +2277,19 @@
             </linearGradient>
           </defs>
           <!-- Hauptkurve: UP → DOWN → UP → DOWN → UP → DOWN (mit Abwärtstrend) -->
-          <path d="M0,350 C50,280 100,150 150,150 C200,150 250,280 300,350 C350,310 400,240 450,240 C500,240 550,280 600,280 C650,290 700,300 750,300 C825,375 900,430 1000,460"
+          <path d="M0,350 C50,280 100,150 150,150 C220,150 260,250 300,350 C340,320 390,260 450,240 C500,240 550,280 600,280 C650,290 700,300 750,300 C825,375 900,430 1000,460"
                 fill="none" stroke="#d54444" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
           <!-- Rote Hauptfläche -->
-          <path d="M0,350 C50,280 100,150 150,150 C200,150 250,280 300,350 C350,310 400,240 450,240 C500,240 550,280 600,280 C650,290 700,300 750,300 C825,375 900,430 1000,460 L1000,500 L0,500 Z"
+          <path d="M0,350 C50,280 100,150 150,150 C220,150 260,250 300,350 C340,320 390,260 450,240 C500,240 550,280 600,280 C650,290 700,300 750,300 C825,375 900,430 1000,460 L1000,530 L0,530 Z"
                 fill="url(#redGradient)"/>
           <!-- Grün: Erste Steigung (Punkt 1) -->
-          <path d="M0,350 C50,280 100,150 150,150 L150,500 L0,500 Z" fill="url(#greenGradient)"/>
+          <path d="M0,350 C50,280 100,150 150,150 L150,530 L0,530 Z" fill="url(#greenGradient)"/>
           <!-- Grün: Zweite Steigung (Punkt 2 - 40% weniger) -->
-          <path d="M300,350 C350,310 400,240 450,240 L450,500 L300,500 Z" fill="url(#greenGradient)"/>
+          <path d="M300,350 C340,320 390,260 450,240 L450,530 L300,530 Z" fill="url(#greenGradient)"/>
           <!-- Grün: Dritte Steigung (Punkt 3 - Substanz) -->
-          <path d="M600,280 C650,290 700,300 750,300 L750,500 L600,500 Z" fill="url(#greenGradient)"/>
-          <!-- Rot am Ende (letzter Abfall) -->
-          <path d="M750,300 C825,375 900,430 1000,460 L1000,500 L750,500 Z" fill="#d54444" opacity="0.35"/>
+          <path d="M600,280 C650,290 700,300 750,300 L750,530 L600,530 Z" fill="url(#greenGradient)"/>
+          <!-- Rot am Ende (letzter Abfall) - jetzt dunkelrot wie die anderen -->
+          <path d="M750,300 C825,375 900,430 1000,460 L1000,530 L750,530 Z" fill="url(#redGradient)"/>
           <!-- 3 milestone markers on the curve -->
           <g class="milestone milestone-neg">
             <line x1="150" y1="150" x2="150" y2="500" stroke="#5aad8a" stroke-width="1" stroke-dasharray="3 4" opacity="0.5"/>
