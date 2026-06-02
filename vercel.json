@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/impressum",
+      "destination": "/impressum.html"
+    },
+    {
+      "source": "/datenschutz",
+      "destination": "/datenschutz.html"
+    },
+    {
+      "source": "/agb",
+      "destination": "/agb.html"
+    }
+  ]
+}
