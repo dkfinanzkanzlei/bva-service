@@ -2262,50 +2262,46 @@
     </div>
 
     <div class="compare-wrap" id="compareWrap" role="slider" aria-label="Was wäre ohne Beratung?"
-         aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+         aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
       <!-- BEFORE (LEFT, red, jagged falling) — clipped from right; only the LEFT slice that slider has revealed -->
       <div class="compare-side compare-before" id="compareBefore">
         <svg viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true">
           <defs>
-            <linearGradient id="goldFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#d54444" stop-opacity="0.35"/>
+            <linearGradient id="redGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#d54444" stop-opacity="0.40"/>
               <stop offset="1" stop-color="#d54444" stop-opacity="0"/>
             </linearGradient>
-            <linearGradient id="greenFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#5aad8a" stop-opacity="0.45"/>
+            <linearGradient id="greenGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#5aad8a" stop-opacity="0.55"/>
               <stop offset="1" stop-color="#5aad8a" stop-opacity="0"/>
             </linearGradient>
           </defs>
-          <!-- Rot-Hauptfläche (90%) -->
-          <path d="M0,300 L80,50 L200,40 L300,30 L400,25 L500,20 L600,15 L700,10 L800,5 L900,0 L1000,480 L1000,500 L0,500 Z"
-                fill="url(#goldFill)"/>
-          <!-- Grüne Spitzen (10%) -->
-          <path d="M80,50 L100,120 L120,50 Z" fill="#5aad8a" opacity="0.5"/>
-          <path d="M200,40 L220,105 L240,40 Z" fill="#5aad8a" opacity="0.5"/>
-          <path d="M300,30 L320,95 L340,30 Z" fill="#5aad8a" opacity="0.5"/>
-          <path d="M400,25 L420,90 L440,25 Z" fill="#5aad8a" opacity="0.5"/>
-          <path d="M500,20 L520,85 L540,20 Z" fill="#5aad8a" opacity="0.5"/>
-          <path d="M600,15 L620,80 L640,15 Z" fill="#5aad8a" opacity="0.5"/>
-          <path d="M700,10 L720,75 L740,10 Z" fill="#5aad8a" opacity="0.5"/>
-          <path d="M800,5 L820,70 L840,5 Z" fill="#5aad8a" opacity="0.5"/>
-          <!-- Linie für Umriss -->
-          <path d="M0,300 L80,50 L200,40 L300,30 L400,25 L500,20 L600,15 L700,10 L800,5 L900,0 L1000,480"
-                fill="none" stroke="#d54444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <!-- 3 milestone markers on the curve -->
+          <!-- Hauptkurve mit Auf- und Abbewegungen -->
+          <path d="M0,320 C80,300 120,180 180,250 C240,310 280,190 340,280 C400,360 440,140 500,240 C560,330 600,100 660,210 C720,300 750,80 810,180 C870,260 920,60 1000,460"
+                fill="none" stroke="#d54444" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Rote Fläche unter der Kurve -->
+          <path d="M0,320 C80,300 120,180 180,250 C240,310 280,190 340,280 C400,360 440,140 500,240 C560,330 600,100 660,210 C720,300 750,80 810,180 C870,260 920,60 1000,460 L1000,500 L0,500 Z"
+                fill="url(#redGradient)"/>
+          <!-- Grüne Bereiche wo Kurve nach oben geht (Peaks) -->
+          <path d="M0,320 C80,300 120,180 180,250 L180,500 L0,500 Z" fill="url(#greenGradient)"/>
+          <path d="M280,190 C340,280 400,360 420,360 L420,500 L280,500 Z" fill="url(#greenGradient)"/>
+          <path d="M600,100 C660,210 720,300 730,300 L730,500 L600,500 Z" fill="url(#greenGradient)"/>
+          <path d="M920,60 L1000,460 L1000,500 L920,500 Z" fill="#d54444" opacity="0.25"/>
+          <!-- 3 milestone markers on the wavy curve -->
           <g class="milestone milestone-neg">
-            <line x1="80" y1="50" x2="80" y2="500" stroke="#d54444" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
-            <circle cx="80" cy="50" r="9" fill="#fff" stroke="#d54444" stroke-width="3"/>
-            <circle cx="80" cy="50" r="3.5" fill="#d54444"/>
+            <line x1="180" y1="250" x2="180" y2="500" stroke="#d54444" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
+            <circle cx="180" cy="250" r="9" fill="#fff" stroke="#d54444" stroke-width="3"/>
+            <circle cx="180" cy="250" r="3.5" fill="#d54444"/>
           </g>
           <g class="milestone milestone-neg">
-            <line x1="300" y1="30" x2="300" y2="500" stroke="#d54444" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
-            <circle cx="300" cy="30" r="9" fill="#fff" stroke="#d54444" stroke-width="3"/>
-            <circle cx="300" cy="30" r="3.5" fill="#d54444"/>
+            <line x1="500" y1="240" x2="500" y2="500" stroke="#d54444" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
+            <circle cx="500" cy="240" r="9" fill="#fff" stroke="#d54444" stroke-width="3"/>
+            <circle cx="500" cy="240" r="3.5" fill="#d54444"/>
           </g>
           <g class="milestone milestone-neg">
-            <line x1="700" y1="10" x2="700" y2="500" stroke="#d54444" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
-            <circle cx="700" cy="10" r="9" fill="#fff" stroke="#d54444" stroke-width="3"/>
-            <circle cx="700" cy="10" r="3.5" fill="#d54444"/>
+            <line x1="810" y1="180" x2="810" y2="500" stroke="#d54444" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
+            <circle cx="810" cy="180" r="9" fill="#fff" stroke="#d54444" stroke-width="3"/>
+            <circle cx="810" cy="180" r="3.5" fill="#d54444"/>
           </g>
         </svg>
         <!-- HTML overlay labels matching the right side, styled red -->
@@ -2954,8 +2950,8 @@
   (function() {
     const wrap = document.getElementById('compareWrap');
     if (!wrap) return;
-    let pos = 0;            // current rendered position
-    let targetPos = 0;      // latest desired position (set from events)
+    let pos = 50;           // current rendered position (start at center)
+    let targetPos = 50;     // latest desired position (set from events)
     let dragging = false;
     let touched = false;
     let rafId = null;
@@ -2967,6 +2963,9 @@
       wrap.setAttribute('aria-valuenow', Math.round(pos));
       if (pos > 1 && !touched) { touched = true; wrap.classList.add('touched'); }
     }
+
+    // Initialize to 50% on page load
+    applyPos(50);
     function tick() {
       rafId = null;
       if (pos !== targetPos) applyPos(targetPos);
