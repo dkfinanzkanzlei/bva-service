@@ -1751,7 +1751,7 @@
     display: block;
   }
   /* Slider clips both halves via a single CSS custom property (smoother updates) */
-  .compare-wrap { --pos: 0%; }
+  .compare-wrap { --pos: 50%; }
   .compare-before {
     clip-path: inset(0 calc(100% - var(--pos)) 0 0);
     will-change: clip-path;
@@ -1790,10 +1790,11 @@
   }
   .milestone-label strong {
     display: block;
-    font-weight: 700;
+    font-weight: 800;
     color: #b9e1cd;
     margin-bottom: 2px;
-    font-size: 14px;
+    font-size: 15px;
+    letter-spacing: -0.01em;
   }
   .milestone-label span {
     color: #b9e1cd;
@@ -1803,10 +1804,10 @@
     border-color: rgba(138,157,138,0.5);
     background: color-mix(in srgb, var(--bg-alt) 90%, transparent);
   }
-  /* Negative (red) variant for the "Ohne Beratung" side */
-  .milestone-label-neg { border-color: rgba(176,82,82,0.40); }
-  .milestone-label-neg strong { color: #b05252; }
-  .milestone-label-neg { border-color: rgba(176,82,82,0.55); }
+  /* Negative (gold) variant for the "Ohne uns" side */
+  .milestone-label-neg { border-color: rgba(192,149,74,0.40); }
+  .milestone-label-neg strong { color: #c0954a; }
+  .milestone-label-neg { border-color: rgba(192,149,74,0.55); }
   .compare-hint {
     position: absolute;
     top: 50%;
@@ -2011,10 +2012,10 @@
     .loop-card p { font-size: 15px; }
     .loop-card-cta { width: clamp(280px, 85vw, 400px); padding: 24px 28px; }
     .loop-card-cta p { font-size: 14px; }
-    .orbit, .loop-center { width: 100px; height: 100px; }
-    .socket { width: 68px; height: 68px; }
-    .orbit-icon { width: 44px; height: 44px; }
-    .loop-center .orbit-icon { width: 88px; height: 88px; }
+    .orbit, .loop-center { width: 70px; height: 70px; }
+    .socket { width: 50px; height: 50px; }
+    .orbit-icon { width: 32px; height: 32px; }
+    .loop-center .orbit-icon { width: 60px; height: 60px; }
     section { padding: 60px 0; }
     .section-head { margin: 0 auto 50px; }
     .section-head h2 { font-size: clamp(24px, 5.5vw, 42px); margin-top: 12px; }
@@ -2089,6 +2090,10 @@
     .hero-cta .btn { padding: 10px 16px; font-size: 12px; }
     .hero-side { gap: 12px; margin-top: clamp(32px, 5vw, 48px); }
     .hero-side .number { font-size: clamp(24px, 3.5vw, 32px); }
+    .orbit, .loop-center { width: 52px; height: 52px; }
+    .socket { width: 40px; height: 40px; }
+    .orbit-icon { width: 24px; height: 24px; }
+    .loop-center .orbit-icon { width: 44px; height: 44px; }
     .loop-card { width: clamp(240px, 85vw, 280px); padding: 22px 26px; }
     .loop-card p { font-size: 13px; }
     .loop-card-cta { width: clamp(260px, 85vw, 300px); padding: 18px 22px; }
@@ -2258,30 +2263,36 @@
       <div class="compare-side compare-before" id="compareBefore">
         <svg viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true">
           <defs>
-            <linearGradient id="redFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#b05252" stop-opacity="0.35"/>
-              <stop offset="1" stop-color="#b05252" stop-opacity="0"/>
+            <linearGradient id="goldFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#c0954a" stop-opacity="0.35"/>
+              <stop offset="1" stop-color="#c0954a" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="greenFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#5aad8a" stop-opacity="0.45"/>
+              <stop offset="1" stop-color="#5aad8a" stop-opacity="0"/>
             </linearGradient>
           </defs>
-          <path d="M0,180 L70,160 L140,220 L210,170 L280,260 L350,210 L420,310 L490,250 L560,360 L630,300 L700,390 L770,330 L840,420 L910,360 L1000,440 L1000,500 L0,500 Z"
-                fill="url(#redFill)"/>
-          <path d="M0,180 L70,160 L140,220 L210,170 L280,260 L350,210 L420,310 L490,250 L560,360 L630,300 L700,390 L770,330 L840,420 L910,360 L1000,440"
-                fill="none" stroke="#b05252" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <!-- 3 milestone markers on the falling red curve -->
+          <path d="M0,300 L70,280 L140,200 L210,240 L280,160 L350,280 L420,140 L490,320 L560,100 L630,380 L700,60 L770,420 L840,80 L910,450 L1000,200 L1000,500 L0,500 Z"
+                fill="url(#goldFill)"/>
+          <path d="M0,300 L70,280 L140,200 L210,240 L280,160 L350,280 L420,140 L490,320 L560,100 L630,380 L700,60 L770,420 L840,80 L910,450 L1000,200 L1000,400 L0,400 Z"
+                fill="url(#greenFill)"/>
+          <path d="M0,300 L70,280 L140,200 L210,240 L280,160 L350,280 L420,140 L490,320 L560,100 L630,380 L700,60 L770,420 L840,80 L910,450 L1000,200"
+                fill="none" stroke="#c0954a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- 3 milestone markers on the wavy curve -->
           <g class="milestone milestone-neg">
-            <line x1="140" y1="220" x2="140" y2="500" stroke="#b05252" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
-            <circle cx="140" cy="220" r="9" fill="#fff" stroke="#b05252" stroke-width="3"/>
-            <circle cx="140" cy="220" r="3.5" fill="#b05252"/>
+            <line x1="210" y1="240" x2="210" y2="500" stroke="#c0954a" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
+            <circle cx="210" cy="240" r="9" fill="#fff" stroke="#c0954a" stroke-width="3"/>
+            <circle cx="210" cy="240" r="3.5" fill="#c0954a"/>
           </g>
           <g class="milestone milestone-neg">
-            <line x1="490" y1="250" x2="490" y2="500" stroke="#b05252" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
-            <circle cx="490" cy="250" r="9" fill="#fff" stroke="#b05252" stroke-width="3"/>
-            <circle cx="490" cy="250" r="3.5" fill="#b05252"/>
+            <line x1="490" y1="320" x2="490" y2="500" stroke="#c0954a" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
+            <circle cx="490" cy="320" r="9" fill="#fff" stroke="#c0954a" stroke-width="3"/>
+            <circle cx="490" cy="320" r="3.5" fill="#c0954a"/>
           </g>
           <g class="milestone milestone-neg">
-            <line x1="840" y1="420" x2="840" y2="500" stroke="#b05252" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
-            <circle cx="840" cy="420" r="9" fill="#fff" stroke="#b05252" stroke-width="3"/>
-            <circle cx="840" cy="420" r="3.5" fill="#b05252"/>
+            <line x1="770" y1="420" x2="770" y2="500" stroke="#c0954a" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
+            <circle cx="770" cy="420" r="9" fill="#fff" stroke="#c0954a" stroke-width="3"/>
+            <circle cx="770" cy="420" r="3.5" fill="#c0954a"/>
           </g>
         </svg>
         <!-- HTML overlay labels matching the right side, styled red -->
@@ -2305,8 +2316,8 @@
         <svg viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true">
           <defs>
             <linearGradient id="sageFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#38916f" stop-opacity="0.40"/>
-              <stop offset="1" stop-color="#38916f" stop-opacity="0"/>
+              <stop offset="0" stop-color="#5aad8a" stop-opacity="0.40"/>
+              <stop offset="1" stop-color="#5aad8a" stop-opacity="0"/>
             </linearGradient>
             <filter id="sageGlow" x="-20%" y="-20%" width="140%" height="140%">
               <feGaussianBlur stdDeviation="4" result="blur"/>
@@ -2316,12 +2327,12 @@
           <path d="M0,420 C200,400 350,330 500,260 C650,190 800,120 1000,60 L1000,500 L0,500 Z"
                 fill="url(#sageFill)"/>
           <path d="M0,420 C200,400 350,330 500,260 C650,190 800,120 1000,60"
-                fill="none" stroke="#1f5d48" stroke-width="3.5" stroke-linecap="round" filter="url(#sageGlow)"/>
+                fill="none" stroke="#38916f" stroke-width="3.5" stroke-linecap="round" filter="url(#sageGlow)"/>
           <!-- 3 milestone dots on the rising curve -->
           <g class="milestone">
-            <line x1="200" y1="385" x2="200" y2="500" stroke="#38916f" stroke-width="1" stroke-dasharray="3 4" opacity="0.5"/>
-            <circle cx="200" cy="385" r="9" fill="#fff" stroke="#1f5d48" stroke-width="3"/>
-            <circle cx="200" cy="385" r="3.5" fill="#1f5d48"/>
+            <line x1="200" y1="385" x2="200" y2="500" stroke="#5aad8a" stroke-width="1" stroke-dasharray="3 4" opacity="0.5"/>
+            <circle cx="200" cy="385" r="9" fill="#fff" stroke="#38916f" stroke-width="3"/>
+            <circle cx="200" cy="385" r="3.5" fill="#38916f"/>
           </g>
           <g class="milestone">
             <line x1="550" y1="245" x2="550" y2="500" stroke="#38916f" stroke-width="1" stroke-dasharray="3 4" opacity="0.5"/>
@@ -2432,7 +2443,7 @@
         <div class="desc">Garantierte Mindestersparnis bei positiver Auswertung</div>
       </div>
       <div class="stat">
-        <div class="big">14 <span style="font-size:0.4em;color:var(--ink);">Tage</span></div>
+        <div class="big">14 <span style="font-size:0.4em;color:#c0954a;">Tage</span></div>
         <div class="desc">Bis zur ersten schriftlichen Auswertung</div>
       </div>
       <div class="stat">
@@ -2504,31 +2515,14 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Das Team hinter BVA-Service</span>
-      <h2>Sieben Spezialisten,<br>ein <em>Mandat:</em> Ihr Erfolg.</h2>
-    </div>
-
-    <div class="team-lead reveal">
-      <div class="team-lead-portrait">
-        <img src="assets/studio/joel.webp" alt="Joel Dakaj — Gründer BVA-Service" />
-      </div>
-      <div class="team-lead-info">
-        <span class="role-badge">Gründer</span>
-        <h3>Joel Dakaj</h3>
-        <p class="position">Gründer BVA-Service</p>
-        <p>Als Gründer von BVA-Service verbindet Joel Dakaj unternehmerischen Anspruch mit dem klaren Ziel, mittelständischen Betrieben spürbare Liquidität zu verschaffen — durch die intelligente Kombination aus Fördermitteln, Steueroptimierung und Kostensenkung. Sein Versprechen: Beratung, die sich für den Mandanten messbar rechnet.</p>
-      </div>
+      <h2>Sechs Spezialisten,<br>ein <em>Mandat:</em> Ihr Erfolg.</h2>
     </div>
 
     <div class="team-grid reveal">
       <div class="member">
-        <div class="member-portrait"><img src="assets/studio/flamur.webp" alt="Flamur Kastrati — Geschäftsführer BVA-Service" /></div>
-        <h4>Flamur Kastrati</h4>
-        <span class="role">Geschäftsführer</span>
-      </div>
-      <div class="member">
-        <div class="member-portrait"><img src="assets/studio/tamaz.webp" alt="Tamaz Tordia — Akkreditierter BAFA-Berater bei BVA-Service" /></div>
+        <div class="member-portrait"><img src="assets/studio/tamaz.webp" alt="Tamaz Tordia — Marketing-Experte bei BVA-Service" /></div>
         <h4>Tamaz Tordia</h4>
-        <span class="role">Akkreditierter BAFA-Berater</span>
+        <span class="role">Marketing-Experte</span>
       </div>
       <div class="member">
         <div class="member-portrait"><img src="assets/studio/philipp.webp" alt="Philipp Jagiella — Vertriebsleiter BVA-Service" /></div>
@@ -2698,9 +2692,9 @@
       </div>
       <div class="footer-col">
         <h5>Rechtliches</h5>
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-        <a href="agb.html">AGB</a>
+        <a href="/impressum">Impressum</a>
+        <a href="/datenschutz">Datenschutz</a>
+        <a href="/agb">AGB</a>
       </div>
     </div>
     <div class="footer-bottom">
