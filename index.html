@@ -1840,26 +1840,31 @@
   .compare-label {
     position: absolute;
     bottom: 18px;
-    font-family: 'Fraunces', 'Times New Roman', serif;
-    font-style: italic;
-    font-size: clamp(15px, 1.4vw, 19px);
-    letter-spacing: -0.01em;
-    padding: 6px 14px;
+    font-family: inherit;
+    font-style: normal;
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    padding: 10px 20px;
     border-radius: 999px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    text-transform: uppercase;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
   }
   .compare-label-before {
     left: 18px;
-    color: #b05252;
-    background: color-mix(in srgb, var(--bg) 70%, transparent);
-    border: 1px solid rgba(176,82,82,0.35);
+    color: #efe8d2;
+    background: rgba(192,149,74,0.85);
+    border: 2px solid #c0954a;
+    box-shadow: 0 0 20px rgba(192,149,74,0.6), 0 0 40px rgba(192,149,74,0.3);
   }
   .compare-label-after {
     right: 18px;
-    color: #1f5d48;
-    background: color-mix(in srgb, var(--bg) 70%, transparent);
-    border: 1px solid rgba(232,168,28,0.50);
+    color: #efe8d2;
+    background: rgba(88,173,138,0.85);
+    border: 2px solid #5aad8a;
+    box-shadow: 0 0 20px rgba(90,173,138,0.6), 0 0 40px rgba(90,173,138,0.3);
   }
   .compare-divider {
     position: absolute;
@@ -2264,35 +2269,44 @@
         <svg viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true">
           <defs>
             <linearGradient id="goldFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#c0954a" stop-opacity="0.35"/>
-              <stop offset="1" stop-color="#c0954a" stop-opacity="0"/>
+              <stop offset="0" stop-color="#d54444" stop-opacity="0.35"/>
+              <stop offset="1" stop-color="#d54444" stop-opacity="0"/>
             </linearGradient>
             <linearGradient id="greenFill" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stop-color="#5aad8a" stop-opacity="0.45"/>
               <stop offset="1" stop-color="#5aad8a" stop-opacity="0"/>
             </linearGradient>
           </defs>
-          <path d="M0,300 L70,280 L140,200 L210,240 L280,160 L350,280 L420,140 L490,320 L560,100 L630,380 L700,60 L770,420 L840,80 L910,450 L1000,200 L1000,500 L0,500 Z"
+          <!-- Rot-Hauptfläche (90%) -->
+          <path d="M0,300 L80,50 L200,40 L300,30 L400,25 L500,20 L600,15 L700,10 L800,5 L900,0 L1000,480 L1000,500 L0,500 Z"
                 fill="url(#goldFill)"/>
-          <path d="M0,300 L70,280 L140,200 L210,240 L280,160 L350,280 L420,140 L490,320 L560,100 L630,380 L700,60 L770,420 L840,80 L910,450 L1000,200 L1000,400 L0,400 Z"
-                fill="url(#greenFill)"/>
-          <path d="M0,300 L70,280 L140,200 L210,240 L280,160 L350,280 L420,140 L490,320 L560,100 L630,380 L700,60 L770,420 L840,80 L910,450 L1000,200"
-                fill="none" stroke="#c0954a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <!-- 3 milestone markers on the wavy curve -->
+          <!-- Grüne Spitzen (10%) -->
+          <path d="M80,50 L100,120 L120,50 Z" fill="#5aad8a" opacity="0.5"/>
+          <path d="M200,40 L220,105 L240,40 Z" fill="#5aad8a" opacity="0.5"/>
+          <path d="M300,30 L320,95 L340,30 Z" fill="#5aad8a" opacity="0.5"/>
+          <path d="M400,25 L420,90 L440,25 Z" fill="#5aad8a" opacity="0.5"/>
+          <path d="M500,20 L520,85 L540,20 Z" fill="#5aad8a" opacity="0.5"/>
+          <path d="M600,15 L620,80 L640,15 Z" fill="#5aad8a" opacity="0.5"/>
+          <path d="M700,10 L720,75 L740,10 Z" fill="#5aad8a" opacity="0.5"/>
+          <path d="M800,5 L820,70 L840,5 Z" fill="#5aad8a" opacity="0.5"/>
+          <!-- Linie für Umriss -->
+          <path d="M0,300 L80,50 L200,40 L300,30 L400,25 L500,20 L600,15 L700,10 L800,5 L900,0 L1000,480"
+                fill="none" stroke="#d54444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- 3 milestone markers on the curve -->
           <g class="milestone milestone-neg">
-            <line x1="210" y1="240" x2="210" y2="500" stroke="#c0954a" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
-            <circle cx="210" cy="240" r="9" fill="#fff" stroke="#c0954a" stroke-width="3"/>
-            <circle cx="210" cy="240" r="3.5" fill="#c0954a"/>
+            <line x1="80" y1="50" x2="80" y2="500" stroke="#d54444" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
+            <circle cx="80" cy="50" r="9" fill="#fff" stroke="#d54444" stroke-width="3"/>
+            <circle cx="80" cy="50" r="3.5" fill="#d54444"/>
           </g>
           <g class="milestone milestone-neg">
-            <line x1="490" y1="320" x2="490" y2="500" stroke="#c0954a" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
-            <circle cx="490" cy="320" r="9" fill="#fff" stroke="#c0954a" stroke-width="3"/>
-            <circle cx="490" cy="320" r="3.5" fill="#c0954a"/>
+            <line x1="300" y1="30" x2="300" y2="500" stroke="#d54444" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
+            <circle cx="300" cy="30" r="9" fill="#fff" stroke="#d54444" stroke-width="3"/>
+            <circle cx="300" cy="30" r="3.5" fill="#d54444"/>
           </g>
           <g class="milestone milestone-neg">
-            <line x1="770" y1="420" x2="770" y2="500" stroke="#c0954a" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
-            <circle cx="770" cy="420" r="9" fill="#fff" stroke="#c0954a" stroke-width="3"/>
-            <circle cx="770" cy="420" r="3.5" fill="#c0954a"/>
+            <line x1="700" y1="10" x2="700" y2="500" stroke="#d54444" stroke-width="1" stroke-dasharray="3 4" opacity="0.45"/>
+            <circle cx="700" cy="10" r="9" fill="#fff" stroke="#d54444" stroke-width="3"/>
+            <circle cx="700" cy="10" r="3.5" fill="#d54444"/>
           </g>
         </svg>
         <!-- HTML overlay labels matching the right side, styled red -->
@@ -2515,7 +2529,7 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Das Team hinter BVA-Service</span>
-      <h2>Sechs Spezialisten,<br>ein <em>Mandat:</em> Ihr Erfolg.</h2>
+      <h2>Sieben Spezialisten,<br>ein <em>Mandat:</em> Ihr Erfolg.</h2>
     </div>
 
     <div class="team-grid reveal">
@@ -2542,6 +2556,11 @@
       <div class="member">
         <div class="member-portrait"><img src="assets/studio/julius_B.webp" alt="Julius Ferreira Schmitz — Fachberater BVA-Service" /></div>
         <h4>Julius Ferreira Schmitz</h4>
+        <span class="role">Fachberater</span>
+      </div>
+      <div class="member">
+        <div class="member-portrait"><div class="portrait-monogram">A</div></div>
+        <h4>Arda Askin</h4>
         <span class="role">Fachberater</span>
       </div>
     </div>
