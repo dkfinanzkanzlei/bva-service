@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Julius — Vergleich</title>
+<style>
+  body{margin:0;background:#f5f5f7;font-family:Arial,Helvetica,sans-serif;color:#1d1d1f;padding:32px}
+  h1{font-size:24px;margin:0 0 4px}
+  p.sub{color:#666;margin:0 0 28px}
+  .row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px}
+  .card{background:#fff;border:1px solid #e5e5e7;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px -16px rgba(0,0,0,.15)}
+  .card .imgwrap{aspect-ratio:3/4;background:#000}
+  .card img{width:100%;height:100%;object-fit:cover;display:block}
+  .card .label{padding:14px 16px}
+  .card .label b{font-size:16px}
+  .card .label span{display:block;color:#777;font-size:13px;margin-top:2px}
+  .tagA{color:#b8860b}
+  @media(max-width:760px){.row{grid-template-columns:1fr}}
+</style></head>
+<body>
+  <h1>Julius — welche Variante?</h1>
+  <p class="sub">Links das Originalfoto, daneben die zwei neuen Varianten mit Gold-Hintergrund (#C0954A). Sag mir einfach „A“ oder „B“.</p>
+  <div class="row">
+    <div class="card">
+      <div class="imgwrap"><img src="assets/_original/julius.png" alt="Original"></div>
+      <div class="label"><b>Original</b><span>Referenzfoto (Büro-Hintergrund)</span></div>
+    </div>
+    <div class="card">
+      <div class="imgwrap"><img src="assets/studio/julius_A.webp" alt="Variante A"></div>
+      <div class="label"><b class="tagA">Variante A</b><span>aktuell aktiv auf der Seite</span></div>
+    </div>
+    <div class="card">
+      <div class="imgwrap"><img src="assets/studio/julius_B.webp" alt="Variante B"></div>
+      <div class="label"><b>Variante B</b><span>Alternative</span></div>
+    </div>
+  </div>
+</body></html>
