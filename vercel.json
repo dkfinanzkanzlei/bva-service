@@ -1,6 +1,5 @@
 {
   "cleanUrls": true,
-  "compress": true,
   "headers": [
     {
       "source": "/(.*)",
