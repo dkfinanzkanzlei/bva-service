@@ -201,7 +201,21 @@
       inset 0 -2px 4px rgba(0,0,0,0.45);
     transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.3s ease;
   }
-  .nav-pill { padding: 11px 26px; font-size: 15px; min-height: auto; border-radius: 999px; line-height: 1.4; }
+  .nav-pill { padding: 10px 22px; font-size: 14px; min-height: auto; border-radius: 999px; line-height: 1.4; white-space: nowrap; }
+  /* Inside the slim nav bar: lighter shadow so the pills sit cleanly without clipping */
+  nav .nav-pill {
+    box-shadow:
+      0 3px 10px rgba(0,0,0,0.30),
+      inset 0 1px 0 rgba(239,232,210,0.7),
+      inset 0 -1px 2px rgba(0,0,0,0.15) !important;
+  }
+  nav .nav-pill:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      0 5px 14px rgba(0,0,0,0.35),
+      inset 0 1px 0 rgba(239,232,210,0.8),
+      inset 0 -1px 2px rgba(0,0,0,0.15) !important;
+  }
   /* glossy top highlight overlay */
   .btn::after, .nav-pill::after {
     content: '';
@@ -647,9 +661,9 @@
   }
   .hero-loop {
     position: relative;
-    width: min(980px, 94vw);
-    /* 46vh cap: orbit shrinks on short windows so title + CTA always fit in 100vh */
-    height: min(520px, 56vw, 46vh);
+    width: min(820px, 86vw);
+    /* 42vh cap: orbit shrinks on short windows so title + CTA always fit in 100vh */
+    height: min(440px, 48vw, 42vh);
     margin: 0 auto;
     isolation: isolate;
   }
@@ -2162,7 +2176,7 @@
     <div class="nav-side nav-right" id="navRight">
       <a href="#leistungen">Leistungen</a>
       <a href="#cases">Referenzen</a>
-      <a href="#kontakt" class="btn"><span class="btn-label">Termin sichern</span> <span class="arrow">→</span></a>
+      <a href="#kontakt" class="nav-pill"><span class="btn-label">Termin sichern</span> <span class="arrow">→</span></a>
     </div>
     <button class="mobile-toggle" id="mobileToggle" aria-label="Menü">
       <span></span><span></span><span></span>
