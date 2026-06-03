@@ -577,7 +577,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: clamp(40px, 6vw, 88px) 0 clamp(20px, 4vw, 44px);
+    /* min 64px top padding so the headline always clears the fixed nav */
+    padding: clamp(64px, 6vw, 88px) 0 clamp(20px, 4vw, 44px);
+  }
+  /* Short windows: smaller headline so the centred hero stack never overflows under the nav */
+  @media (max-height: 860px) {
+    .hero-title { font-size: clamp(24px, 4.6vw, 52px); margin-bottom: 10px; }
+  }
+  @media (max-height: 700px) {
+    .hero-title { font-size: clamp(22px, 4vw, 40px); margin-bottom: 8px; }
+    .hero-loop  { height: min(520px, 56vw, 40vh); }
   }
   @media (prefers-reduced-motion: reduce) {
     .hero-pin { position: relative; height: auto; min-height: 100vh; }
@@ -639,7 +648,8 @@
   .hero-loop {
     position: relative;
     width: min(980px, 94vw);
-    height: min(520px, 56vw);
+    /* 46vh cap: orbit shrinks on short windows so title + CTA always fit in 100vh */
+    height: min(520px, 56vw, 46vh);
     margin: 0 auto;
     isolation: isolate;
   }
