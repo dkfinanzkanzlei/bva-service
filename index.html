@@ -26,9 +26,10 @@
     --bg: #1b6b54;
     --bg-alt: #4a9c7e;
     --ink: #efe8d2;
-    --ink-soft: #c0954a;
-    --muted: #4a9c7e;
-    --line: #1b6b54;
+    /* soft body text — cream, NOT gold/green, so it stays readable on every green bg */
+    --ink-soft: rgba(239,232,210,0.85);
+    --muted: rgba(239,232,210,0.62);
+    --line: rgba(239,232,210,0.22);
     --sage: #4a9c7e;
     --sage-deep: #efe8d2;
     --sage-soft: #4a9c7e;
@@ -42,7 +43,8 @@
     --gold-deep: #b28440;
     --gold-soft: rgba(192,149,74,0.88);
     --red: #c0954a;
-    --paper: #4a9c7e;
+    /* card surface — darker than --bg-alt so cards stand off their section bg */
+    --paper: #175a46;
     --card-shadow: 0 8px 28px rgba(0,0,0,0.6);
     --btn-shadow: 0 8px 24px rgba(0,0,0,0.6), inset 0 1px 0 rgba(74,156,126,0.08);
     --section-dark-bg: #1b6b54;
@@ -988,7 +990,7 @@
     gap: 80px;
     align-items: center;
   }
-  .promise .eyebrow { color: var(--accent); }
+  .promise .eyebrow { color: #e8c98f; }
   .promise h2 {
     color: var(--ink);
     font-size: clamp(40px, 5.5vw, 68px);
@@ -1820,23 +1822,24 @@
   .milestone-label strong {
     display: block;
     font-weight: 800;
-    color: #4a9c7e;
+    color: #efe8d2;
     margin-bottom: 2px;
     font-size: 15px;
     letter-spacing: -0.01em;
   }
   .milestone-label span {
-    color: #4a9c7e;
+    color: rgba(239,232,210,0.78);
     font-size: 11.5px;
   }
   .milestone-label {
-    border-color: rgba(138,157,138,0.5);
-    background: color-mix(in srgb, var(--bg-alt) 90%, transparent);
+    border-color: rgba(239,232,210,0.30);
+    background: color-mix(in srgb, #123c2f 88%, transparent);
+    /* subtle contour so the text reads clearly over the chart lines */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.45);
   }
   /* Negative (gold) variant for the "Ohne uns" side */
-  .milestone-label-neg { border-color: rgba(192,149,74,0.40); }
-  .milestone-label-neg strong { color: #b28440; }
   .milestone-label-neg { border-color: rgba(192,149,74,0.55); }
+  .milestone-label-neg strong { color: #d9a85e; }
   .compare-hint {
     position: absolute;
     top: 50%;
