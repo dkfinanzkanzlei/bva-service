@@ -1431,11 +1431,10 @@
   /* Tabita's source photo is shot from further away — zoom in so her head
      lines up with the other portraits */
   .member-portrait img.portrait-tabita {
-    transform: scale(1.28);
-    transform-origin: 50% 10%;
+    transform: translateY(-10%) scale(1.28);
   }
   .member:hover .member-portrait img.portrait-tabita {
-    transform: scale(1.32);
+    transform: translateY(-10%) scale(1.32);
   }
   .member-portrait .mono {
     font-family: inherit;
@@ -1494,13 +1493,14 @@
   .step-content .duration {
     display: inline-block;
     font-size: 13px;
-    color: var(--accent);
+    color: #e8c98f;
     letter-spacing: -0.01em;
     text-transform: none;
     font-weight: 500;
     margin-top: 16px;
     padding: 5px 12px;
-    background: var(--sage-soft);
+    background: var(--paper);
+    border: 1px solid rgba(239,232,210,0.18);
     border-radius: 980px;
   }
 
@@ -2611,7 +2611,7 @@
         <div class="step-content">
           <h3>Kostenfreies Erstgespräch</h3>
           <p>Wir hören zu, verstehen Ihre Situation, und prüfen unverbindlich, ob ein gemeinsames Mandat überhaupt Sinn ergibt. Keine Verpflichtung, kein Verkaufsgespräch.</p>
-          <span class="duration">30 Minuten · per Telefon oder vor Ort</span>
+          <span class="duration">30 Minuten · per Telefon</span>
         </div>
       </div>
 
