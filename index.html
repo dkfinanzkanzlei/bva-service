@@ -714,7 +714,15 @@
     .hero-cta { display: none; }
     /* no orbit rotation on mobile → no need for the scroll-pinned extra height */
     .hero { height: auto; }
-    .hero-pin { position: relative; height: auto; min-height: 100dvh; }
+    .hero-pin {
+      position: relative;
+      height: auto;
+      min-height: 100dvh;
+      /* top-aligned: content starts right below the fixed nav, no dead space */
+      justify-content: flex-start;
+      padding: 122px 0 24px;
+    }
+    .hero-title { margin-bottom: 18px; }
   }
 
   /* ===== INTRO CHOREOGRAPHY — runs only when <html> has .bc-intro ===== */
