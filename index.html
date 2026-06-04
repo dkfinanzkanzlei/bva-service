@@ -1428,6 +1428,15 @@
   .member:hover .member-portrait img {
     transform: scale(1.03);
   }
+  /* Tabita's source photo is shot from further away — zoom in so her head
+     lines up with the other portraits */
+  .member-portrait img.portrait-tabita {
+    transform: scale(1.28);
+    transform-origin: 50% 10%;
+  }
+  .member:hover .member-portrait img.portrait-tabita {
+    transform: scale(1.32);
+  }
   .member-portrait .mono {
     font-family: inherit;
     font-size: 64px;
@@ -2564,7 +2573,7 @@
         <span class="role">Vertriebsleiter</span>
       </div>
       <div class="member">
-        <div class="member-portrait"><img src="assets/studio/tabita.webp" alt="Tabita Mbolo — Fachberaterin BVA-Service" /></div>
+        <div class="member-portrait"><img class="portrait-tabita" src="assets/studio/tabita.webp" alt="Tabita Mbolo — Fachberaterin BVA-Service" /></div>
         <h4>Tabita Mbolo</h4>
         <span class="role">Fachberaterin</span>
       </div>
