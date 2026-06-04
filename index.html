@@ -101,6 +101,8 @@
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
+  /* hard horizontal lock — page can only ever scroll vertically */
+  html, body { overflow-x: hidden; overflow-x: clip; max-width: 100%; }
   /* Headlines re-balance their line breaks automatically at any width */
   h1, h2, h3 { text-wrap: balance; }
   /* Media never overflows its container */
@@ -682,15 +684,19 @@
       font-size: 14px;
       min-height: auto;
     }
-    /* the 4 cards: out of orbit, stacked in the right column */
-    .loop-card {
+    /* the 4 cards: out of orbit, stacked in the right column — no width
+       overrides from base rules, no animations or transitions at all */
+    .loop-card, .loop-card-cta {
       position: static !important;
       transform: none !important;
       opacity: 1 !important;
       filter: none !important;
+      animation: none !important;
+      transition: none !important;
       grid-column: 2;
-      width: auto;
-      padding: 12px 14px;
+      width: auto !important;
+      max-width: 100%;
+      padding: 12px 14px !important;
       border-radius: 14px;
       border-width: 1px;
     }
@@ -699,7 +705,11 @@
       line-height: 1.35;
       opacity: 1 !important;
       transform: none !important;
+      animation: none !important;
+      transition: none !important;
     }
+    /* bouncing 'weiter' arrow is desktop-only */
+    .orbit-scroll-hint { display: none !important; }
     /* one CTA is enough on mobile — the pitch button takes over */
     .hero-cta { display: none; }
     /* no orbit rotation on mobile → no need for the scroll-pinned extra height */
