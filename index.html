@@ -701,7 +701,7 @@
       border-width: 1px;
     }
     .loop-card p {
-      font-size: 12px;
+      font-size: 12px !important; /* beats the inline font-size from the orbit JS */
       line-height: 1.35;
       opacity: 1 !important;
       transform: none !important;
@@ -2927,6 +2927,8 @@
       }
     }
     function render() {
+      // Mobile shows the static stacked layout — never touch the cards there.
+      if (window.matchMedia('(max-width: 640px)').matches) return;
       if (orbitImg) orbitImg.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
       cards.forEach((card, i) => {
         const isCta = card.classList.contains('loop-card-cta');
