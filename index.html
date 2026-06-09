@@ -627,38 +627,24 @@
 
   /* ============ HERO (TWO-COLUMN: FRAGEN + PITCH) ============ */
   .hero { padding: 0; position: relative; text-align: center; isolation: isolate; height: auto; }
-  /* ============ HERO BACKGROUND — AURORA VIDEO ============ */
+  /* ============ HERO BACKGROUND — DARK RADIAL GLOW (Markengrün/Gold) ============ */
   .hero-shader {
     position: absolute;
     inset: 0;
     z-index: 0;
     pointer-events: none;
     overflow: hidden;
-    background: var(--bg);
+    /* dunkelgrüne Fläche + weicher goldener Lichtkegel von oben */
+    background:
+      radial-gradient(circle 600px at 50% 160px, rgba(192,149,74,0.45), transparent),
+      #0d3429;
   }
-  .hero-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    opacity: 0.9;
-  }
-  /* Lesbarkeits-Scrim über dem Video, damit Creme-/Gold-Text klar bleibt */
+  /* Lesbarkeits-Scrim: oben transparent (Glow bleibt sichtbar), unten dezent abgedunkelt */
   .hero-scrim {
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(125% 95% at 50% 0%, rgba(27,107,84,0.28) 0%, rgba(20,78,62,0.52) 58%, rgba(13,52,41,0.74) 100%),
-      linear-gradient(180deg, rgba(13,52,41,0.32) 0%, rgba(13,52,41,0.06) 38%, rgba(13,52,41,0.46) 100%);
-  }
-  /* Reduced-Motion: kein Video — ruhiges Poster-Standbild */
-  @media (prefers-reduced-motion: reduce) {
-    .hero-video { display: none; }
-    .hero-shader {
-      background: url(assets/hero-aurora-poster.webp?v=1) center/cover no-repeat, var(--bg);
-    }
+      linear-gradient(180deg, rgba(13,52,41,0) 30%, rgba(13,52,41,0.45) 100%);
   }
   /* Hero CTA — dark 3D pill in light mode, brighter/white in dark mode */
   .hero-cta .btn {
@@ -2652,10 +2638,6 @@
 <header class="hero" id="heroSection">
   <div class="hero-pin">
     <div class="hero-shader" aria-hidden="true">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/hero-aurora-poster.webp?v=1">
-        <source src="assets/hero-aurora.webm?v=1" type="video/webm" />
-        <source src="assets/hero-aurora.mp4?v=1" type="video/mp4" />
-      </video>
       <div class="hero-scrim"></div>
     </div>
     <div class="container">
