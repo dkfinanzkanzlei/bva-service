@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /compare-julius.html
-Disallow: /preview-emblem.html
 
 Sitemap: https://www.bva-service.de/sitemap.xml
