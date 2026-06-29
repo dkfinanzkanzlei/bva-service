@@ -26,6 +26,14 @@
   ],
   "rewrites": [
     {
+      "source": "/bav",
+      "destination": "/bav.html"
+    },
+    {
+      "source": "/bkv",
+      "destination": "/bkv.html"
+    },
+    {
       "source": "/impressum",
       "destination": "/impressum.html"
     },
