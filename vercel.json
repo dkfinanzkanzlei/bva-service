@@ -44,6 +44,10 @@
     {
       "source": "/agb",
       "destination": "/agb.html"
+    },
+    {
+      "source": "/agb-versicherung",
+      "destination": "/agb-versicherung.html"
     }
   ]
 }
