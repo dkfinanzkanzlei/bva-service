@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Versicherungen für Unternehmen – BVA-Service</title>
+<meta name="description" content="Versicherungen für dein Unternehmen: betriebliche Altersvorsorge (BAV) und betriebliche Krankenversicherung (BKV) – verständlich erklärt im Video. BVA-Service berät und vermittelt." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://www.bva-service.de/versicherungen" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:site_name" content="BVA-Service" />
+<meta property="og:title" content="Versicherungen für Unternehmen – BVA-Service" />
+<meta property="og:description" content="Betriebliche Altersvorsorge und betriebliche Krankenversicherung für dein Unternehmen – verständlich erklärt im Video." />
+<meta property="og:url" content="https://www.bva-service.de/versicherungen" />
+<meta property="og:image" content="https://www.bva-service.de/assets/og-bva.jpg" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://www.bva-service.de/"},{"@type":"ListItem","position":2,"name":"Versicherungen für Unternehmen","item":"https://www.bva-service.de/versicherungen"}]}
+</script>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_bva.png?v=7" />
+<link rel="shortcut icon" type="image/png" href="assets/favicon_bva.png?v=7" />
+<link rel="apple-touch-icon" href="assets/favicon_bva.png?v=7" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0c221c;
+    --bg-alt: #173d31;
+    --ink: #efe8d2;
+    --ink-soft: #d0b274;
+    --muted: #b9e1cd;
+    --line: #38916f;
+    --gold: #d0b274;
+    --gold-deep: #c0954a;
+    --paper: #173d31;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', 'Inter', system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+  a { color: var(--gold); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s, color .2s; }
+  a:hover { border-bottom-color: var(--gold); color: var(--gold-deep); }
+  h1, h2, h3 { font-weight: 700; letter-spacing: -0.025em; color: var(--ink); }
+
+  /* NAV */
+  nav#nav {
+    position: sticky; top: 0; z-index: 100;
+    background: color-mix(in srgb, var(--bg) 86%, transparent);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 0;
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .logo {
+    display: inline-flex; align-items: center; line-height: 0;
+    padding: 7px 14px; background: #ffffff; border-radius: 14px; border-bottom: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(0,0,0,0.04);
+  }
+  .logo:hover { border-bottom: none; }
+  .logo img { height: 52px; width: auto; display: block; }
+  @media (max-width: 640px) { .logo img { height: 42px; } }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    padding: 88px 0 64px;
+    text-align: center;
+    background:
+      radial-gradient(60% 80% at 50% 0%, rgba(208,178,116,0.16), transparent 70%),
+      radial-gradient(50% 60% at 50% 100%, rgba(56,145,111,0.18), transparent 70%);
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow {
+    display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 18px;
+    padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px;
+  }
+  .hero h1 { font-size: clamp(38px, 6vw, 64px); line-height: 1.05; letter-spacing: -0.035em; margin-bottom: 20px; }
+  .hero .lead { max-width: 720px; margin: 0 auto 32px; font-size: clamp(17px, 2vw, 20px); color: var(--muted); line-height: 1.7; }
+
+  /* ===== Buttons wie auf der Startseite: Gradient + Glanz + Shine-Überlauf ===== */
+  .btn, .nav-pill {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 20px 48px; min-height: 60px;
+    background: linear-gradient(145deg, #efe8d2 0%, #c0954a 100%);
+    color: #1b6b54 !important;
+    text-decoration: none; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.4;
+    border-radius: 999px; border: none; border-bottom: none; cursor: pointer;
+    position: relative; overflow: hidden; isolation: isolate;
+    box-shadow:
+      0 10px 28px rgba(0,0,0,0.55),
+      0 2px 6px rgba(0,0,0,0.4),
+      inset 0 1px 0 rgba(239,232,210,0.7),
+      inset 0 -2px 4px rgba(0,0,0,0.18);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.3s ease;
+  }
+  .nav-pill {
+    padding: 14px 32px; font-size: 14.5px; letter-spacing: 0.01em; min-height: auto; line-height: 1.35; white-space: nowrap;
+  }
+  nav .nav-pill {
+    box-shadow:
+      0 3px 10px rgba(0,0,0,0.30),
+      inset 0 1px 0 rgba(239,232,210,0.7),
+      inset 0 -1px 2px rgba(0,0,0,0.15);
+  }
+  nav .nav-pill:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      0 5px 14px rgba(0,0,0,0.35),
+      inset 0 1px 0 rgba(239,232,210,0.8),
+      inset 0 -1px 2px rgba(0,0,0,0.15);
+  }
+  .btn::after, .nav-pill::after {
+    content: ''; position: absolute; top: 1px; left: 4%; right: 4%; height: 45%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0));
+    border-radius: 999px 999px 999px 999px / 999px 999px 50% 50%;
+    pointer-events: none; z-index: 1;
+  }
+  .btn::before, .nav-pill::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 60%; height: 100%;
+    background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,0) 35%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0) 65%, transparent 100%);
+    transform: translateX(-180%) skewX(-18deg);
+    animation: btnShine 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    pointer-events: none; z-index: 0;
+  }
+  .btn:hover::before, .nav-pill:hover::before { animation-duration: 1.6s; }
+  @keyframes btnShine {
+    0%   { transform: translateX(-180%) skewX(-18deg); }
+    55%  { transform: translateX(280%) skewX(-18deg); }
+    100% { transform: translateX(280%) skewX(-18deg); }
+  }
+  .btn > *, .nav-pill > * { position: relative; z-index: 2; }
+  .btn-label, .btn .arrow, .nav-pill .arrow { color: #1b6b54; }
+  .btn .arrow, .nav-pill .arrow { display: inline-block; transition: transform 0.25s; }
+  .btn:hover, .nav-pill:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 16px 36px rgba(0,0,0,0.50),
+      0 3px 8px rgba(0,0,0,0.28),
+      inset 0 1px 0 rgba(255,255,255,0.28),
+      inset 0 -2px 4px rgba(0,0,0,0.45);
+  }
+  .btn:active, .nav-pill:active {
+    transform: translateY(1px);
+    box-shadow:
+      0 4px 12px rgba(0,0,0,0.35),
+      inset 0 1px 0 rgba(255,255,255,0.12),
+      inset 0 -1px 2px rgba(0,0,0,0.55);
+  }
+  .btn:hover .arrow, .nav-pill:hover .arrow { transform: translateX(4px); }
+
+  /* SECTIONS */
+  section { padding: 72px 0; }
+  .section-head { text-align: center; max-width: 720px; margin: 0 auto 48px; }
+  .section-head h2 { font-size: clamp(26px, 3.5vw, 40px); line-height: 1.12; letter-spacing: -0.03em; margin-bottom: 14px; }
+  .section-head p { color: var(--muted); font-size: 17px; }
+
+  /* ===== Produktkarten (BAV / BKV) ===== */
+  @property --bd-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+  .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 960px; margin: 0 auto; }
+  .product-card {
+    position: relative; display: flex; flex-direction: column; gap: 14px;
+    background: var(--paper); border: 2px solid var(--gold-deep); border-radius: 22px;
+    padding: 40px 36px; text-decoration: none; color: inherit; overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  .product-card:hover { transform: translateY(-4px); box-shadow: 0 18px 48px rgba(0,0,0,0.30); border-bottom-color: var(--gold-deep); }
+  .product-card > * { position: relative; z-index: 1; }
+  .product-card::before {
+    content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    border-radius: inherit; padding: 2px;
+    background: conic-gradient(from var(--bd-angle),
+      transparent 0deg, rgba(208,178,116,0) 60deg,
+      #f6e6bf 92deg, var(--gold) 112deg, rgba(208,178,116,0) 175deg, transparent 360deg);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    animation: bdSpin 5s linear infinite;
+  }
+  .product-card:nth-child(2)::before { animation-delay: -2.5s; }
+  @keyframes bdSpin { to { --bd-angle: 360deg; } }
+  .product-card .pic { width: 54px; height: 54px; border-radius: 14px; background: rgba(208,178,116,0.16); color: var(--gold); display: flex; align-items: center; justify-content: center; }
+  .product-card .pic svg { width: 28px; height: 28px; }
+  .product-card .tag { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-deep); font-weight: 700; }
+  .product-card h3 { font-size: clamp(22px, 2.6vw, 28px); letter-spacing: -0.025em; line-height: 1.12; }
+  .product-card p { color: var(--ink-soft); font-size: 16px; line-height: 1.6; flex: 1; }
+  .product-card .watch { margin-top: 8px; display: inline-flex; align-items: center; gap: 12px; color: var(--gold); font-weight: 600; }
+  .product-card .watch .play { width: 34px; height: 34px; border-radius: 999px; background: var(--gold); color: #0c221c; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+  .product-card .watch .play svg { width: 15px; height: 15px; margin-left: 2px; }
+  .product-card .watch .arrow { transition: transform 0.25s ease; }
+  .product-card:hover .watch .arrow { transform: translateX(4px); }
+  @media (prefers-reduced-motion: reduce) { .product-card::before { animation: none; } }
+  @media (max-width: 720px) { .product-grid { grid-template-columns: 1fr; } }
+
+  /* CTA BAND */
+  .cta-band { text-align: center; background: var(--bg-alt); }
+  .cta-band h2 { font-size: clamp(26px, 4vw, 42px); line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 16px; }
+  .cta-band p { color: var(--muted); font-size: 17px; max-width: 560px; margin: 0 auto 30px; }
+
+  /* FOOTER */
+  footer { background: #081a15; color: var(--muted); padding: 56px 0 40px; border-top: 1px solid var(--line); }
+  .footer-grid { display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; margin-bottom: 36px; }
+  .footer-brand p { margin-top: 14px; max-width: 240px; font-size: 14px; color: var(--muted); }
+  .footer-col h5 { color: var(--ink); font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
+  .footer-col a { display: block; color: var(--muted); font-size: 14px; margin-bottom: 8px; border-bottom: none; }
+  .footer-col a:hover { color: var(--gold); border-bottom: none; }
+  .footer-bottom { border-top: 1px solid var(--line); padding-top: 24px; font-size: 13px; color: var(--muted); text-align: center; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 60px 0 48px; }
+    section { padding: 56px 0; }
+    .container { padding: 0 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="/" class="logo" aria-label="BVA-Service zur Startseite">
+      <img src="assets/logo_bva_center.png?v=2" alt="BVA-Service" />
+    </a>
+    <a href="/#kontakt" class="nav-pill"><span class="btn-label">Termin sichern</span> <span class="arrow">→</span></a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <span class="eyebrow">Für Unternehmen</span>
+    <h1>Versicherungen für dein Unternehmen</h1>
+    <p class="lead">Stärke deinen Betrieb und binde deine Mitarbeiter – mit betrieblicher Vorsorge. Wähle einen Bereich und sieh dir das passende Video an.</p>
+    <a href="/#kontakt" class="btn"><span class="btn-label">Kostenloses Erstgespräch</span> <span class="arrow">→</span></a>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2>Unsere betriebliche Vorsorge</h2>
+      <p>Klicke auf einen Bereich und schau dir das passende Erklärvideo an.</p>
+    </div>
+    <div class="product-grid">
+      <a class="product-card" href="/bav">
+        <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <span class="tag">Betriebliche Vorsorge</span>
+        <h3>Betriebliche Altersvorsorge</h3>
+        <p>Zusätzliche Rente für deine Mitarbeiter – steuer- und sozialabgabenbegünstigt, mit Arbeitgeberzuschuss.</p>
+        <span class="watch"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span> Video ansehen <span class="arrow">→</span></span>
+      </a>
+      <a class="product-card" href="/bkv">
+        <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        <span class="tag">Betriebliche Vorsorge</span>
+        <h3>Betriebliche Krankenversicherung</h3>
+        <p>Privater Gesundheitsschutz als Zusatzleistung – meist ohne Gesundheitsprüfung, planbar und attraktiv.</p>
+        <span class="watch"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span> Video ansehen <span class="arrow">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>Welche Lösung passt zu deinem Betrieb?</h2>
+    <p>In einem kostenlosen Erstgespräch finden wir gemeinsam die passende betriebliche Vorsorge für dein Unternehmen.</p>
+    <a href="/#kontakt" class="btn"><span class="btn-label">Kostenloses Erstgespräch</span> <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo" aria-label="BVA-Service">
+          <img src="assets/logo_bva_center.png?v=2" alt="BVA-Service" />
+        </a>
+        <p>Unternehmensberatung für den Mittelstand sowie Versicherungs- und Finanzanlagenvermittlung.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Leistungen</h5>
+        <a href="/#leistungen">Förder- & Einsparanalyse</a>
+        <a href="/bav">Betriebliche Altersvorsorge</a>
+        <a href="/bkv">Betriebliche Krankenversicherung</a>
+      </div>
+      <div class="footer-col">
+        <h5>Unternehmen</h5>
+        <a href="/#team">Team</a>
+        <a href="/versicherungen">Versicherungen</a>
+        <a href="/#kontakt">Kontakt</a>
+      </div>
+      <div class="footer-col">
+        <h5>Rechtliches</h5>
+        <a href="/impressum">Impressum</a>
+        <a href="/datenschutz">Datenschutz</a>
+        <a href="/agb-versicherung">AGB</a>
+        <a href="#" data-cookie-settings>Cookie-Einstellungen</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 JD Finance Unternehmergesellschaft (haftungsbeschränkt) · BVA-Service · Aachen
+    </div>
+  </div>
+</footer>
+
+<script defer src="/assets/cookie-consent.js?v=1"></script>
+</body>
+</html>
