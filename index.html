@@ -159,7 +159,7 @@
     --section-dark-line: rgba(74,156,126,0.2);
     --section-dark-muted: rgba(239,232,210,0.65);
     --accent-mint: #a8d8b8;
-    --accent-blue: #6fb3d9;
+    --accent-blue: #c0954a; /* vormals Hellblau – jetzt Gold (Umrandungen) */
   }
   html { color-scheme: light; transition: background-color 0.4s ease, color 0.4s ease; }
   body { transition: background-color 0.4s ease, color 0.4s ease; }
@@ -1569,6 +1569,28 @@
   .solution-card .more .arrow { transition: transform 0.2s ease; }
   .solution-card:hover .more .arrow { transform: translateX(4px); }
   @media (max-width: 760px) { .solutions-grid { grid-template-columns: 1fr; } }
+  /* ===== Animierte Gold-Umrandung (laufender Lichtpunkt) auf Karten ===== */
+  @property --bd-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+  .service-card, .solution-card { position: relative; }
+  .service-card::before, .solution-card::before {
+    content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    border-radius: inherit; padding: 2px;
+    background: conic-gradient(from var(--bd-angle),
+      transparent 0deg, rgba(208,178,116,0) 60deg,
+      #f6e6bf 92deg, var(--gold) 112deg, rgba(208,178,116,0) 175deg, transparent 360deg);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    animation: bdSpin 5s linear infinite;
+  }
+  .services-grid .service-card:nth-child(2)::before { animation-delay: -1.25s; }
+  .services-grid .service-card:nth-child(3)::before { animation-delay: -2.5s; }
+  .services-grid .service-card:nth-child(4)::before { animation-delay: -3.75s; }
+  .solutions-grid .solution-card:nth-child(2)::before { animation-delay: -2.5s; }
+  @keyframes bdSpin { to { --bd-angle: 360deg; } }
+  @media (prefers-reduced-motion: reduce) {
+    .service-card::before, .solution-card::before { animation: none; }
+  }
 
   /* ============ ANTWORTEN (Fragen nacheinander) ============ */
   .answers { background: var(--bg); }
