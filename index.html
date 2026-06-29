@@ -627,26 +627,40 @@
 
   /* ============ HERO (TWO-COLUMN: FRAGEN + PITCH) ============ */
   .hero { padding: 0; position: relative; text-align: center; isolation: isolate; height: auto; }
-  /* ============ HERO BACKGROUND — DARK RADIAL GLOW (Markengrün/Gold) ============ */
+  /* ============ HERO BACKGROUND — Premium: dunkles Grün, Logo-Kreise, Goldschein ============ */
   .hero-shader {
     position: absolute;
     inset: 0;
     z-index: 0;
     pointer-events: none;
     overflow: hidden;
-    /* dunkelgrüne Fläche + weicher goldener Lichtkegel von oben */
+    /* sehr dunkle, elegante grüne Fläche mit weicher Tiefe (Lichtquelle Richtung Headline) */
     background:
-      radial-gradient(circle 600px at 50% 160px, rgba(192,149,74,0.45), transparent),
-      #0d3429;
+      radial-gradient(125% 130% at 78% 36%, #103729 0%, #0a2a20 40%, #061b15 80%);
+    background-color: #061b15;
   }
-  /* Lesbarkeits-Scrim: oben transparent (Glow bleibt sichtbar), unten dezent abgedunkelt */
+  /* Dezentes Logo-Motiv: überlappende Kreise — nur rechts hinter der Headline, links sauber ausgeblendet */
+  .hero-shader::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='1000' height='1000' viewBox='0 0 1000 1000'><g fill='none' stroke='%23c0954a' stroke-width='1.4'><circle cx='560' cy='430' r='300'/><circle cx='760' cy='540' r='300'/><circle cx='650' cy='660' r='210'/><circle cx='430' cy='320' r='160'/><circle cx='820' cy='350' r='150'/></g></svg>");
+    background-repeat: no-repeat;
+    background-position: right -40px center;
+    background-size: min(880px, 94%) auto;
+    opacity: 0.11;
+    -webkit-mask-image: linear-gradient(90deg, transparent 8%, #000 54%);
+            mask-image: linear-gradient(90deg, transparent 8%, #000 54%);
+  }
+  /* Lesbarkeits-Scrim: linke FAQ-Seite ruhig & dunkel, unten dezent abgedunkelt */
   .hero-scrim {
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(180deg, rgba(13,52,41,0) 30%, rgba(13,52,41,0.45) 100%);
+      radial-gradient(85% 105% at 0% 50%, rgba(3,14,11,0.62), transparent 56%),
+      linear-gradient(180deg, rgba(6,27,21,0) 52%, rgba(3,14,11,0.55) 100%);
   }
-  /* ===== Animierter Spotlight (angewinkelter Lichtkegel von oben) ===== */
+  /* ===== Warmer, goldener Lichtschein hinter der Hauptüberschrift (rechte Spalte) ===== */
   .hero-spotlight {
     position: absolute;
     inset: 0;
@@ -654,43 +668,64 @@
     pointer-events: none;
     overflow: hidden;
     opacity: 0;
-    animation: spotlightFade 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+    animation: spotlightFade 1.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
   }
   .hero-spotlight-beam {
     position: absolute;
-    top: -28%;
-    left: 50%;
-    width: 78%;
-    height: 135%;
-    transform-origin: top center;
-    transform: translateX(-50%) rotate(-13deg);
+    top: 44%;
+    left: 74%;
+    width: min(760px, 80%);
+    aspect-ratio: 1 / 1;
+    transform: translate(-50%, -50%);
     background:
-      radial-gradient(ellipse 38% 50% at 50% 0%, rgba(208,178,116,0.42), rgba(208,178,116,0.12) 44%, transparent 72%);
-    filter: blur(34px);
-    will-change: transform;
-    animation: spotlightSweep 9s ease-in-out infinite alternate;
+      radial-gradient(circle at center, rgba(192,149,74,0.38) 0%, rgba(192,149,74,0.13) 38%, transparent 68%);
+    filter: blur(38px);
+    will-change: transform, opacity;
+    animation: glowBreath 9s ease-in-out infinite alternate;
   }
-  /* zweiter, schwächerer Strahl für mehr Tiefe */
+  /* zweiter, weicherer Schein für mehr Tiefe */
   .hero-spotlight-beam.beam-2 {
-    width: 60%;
-    transform: translateX(-46%) rotate(8deg);
+    top: 37%;
+    left: 70%;
+    width: min(520px, 60%);
     background:
-      radial-gradient(ellipse 34% 46% at 50% 0%, rgba(192,149,74,0.22), transparent 70%);
-    filter: blur(48px);
-    animation: spotlightSweep2 11s ease-in-out infinite alternate;
+      radial-gradient(circle at center, rgba(208,178,116,0.20) 0%, transparent 66%);
+    filter: blur(58px);
+    animation: glowBreath2 12s ease-in-out infinite alternate;
   }
   @keyframes spotlightFade { to { opacity: 1; } }
-  @keyframes spotlightSweep {
-    from { transform: translateX(-50%) rotate(-16deg) scale(1); }
-    to   { transform: translateX(-50%) rotate(-9deg)  scale(1.05); }
+  @keyframes glowBreath {
+    from { transform: translate(-50%, -50%) scale(0.96); opacity: 0.85; }
+    to   { transform: translate(-50%, -50%) scale(1.06); opacity: 1; }
   }
-  @keyframes spotlightSweep2 {
-    from { transform: translateX(-46%) rotate(11deg) scale(1.04); }
-    to   { transform: translateX(-46%) rotate(5deg)  scale(1); }
+  @keyframes glowBreath2 {
+    from { transform: translate(-50%, -50%) scale(1.05); opacity: 0.7; }
+    to   { transform: translate(-50%, -50%) scale(0.95); opacity: 1; }
   }
   @media (prefers-reduced-motion: reduce) {
     .hero-spotlight { opacity: 1; animation: none; }
     .hero-spotlight-beam { animation: none; }
+  }
+  /* Mobile: gestapeltes Layout → Goldschein & Kreise mittig nach oben hinter den Inhalt */
+  @media (max-width: 820px) {
+    .hero-shader {
+      background:
+        radial-gradient(125% 120% at 50% 20%, #103729 0%, #0a2a20 44%, #061b15 82%);
+      background-color: #061b15;
+    }
+    .hero-shader::before {
+      background-position: center -30px;
+      background-size: min(620px, 124%) auto;
+      opacity: 0.08;
+      -webkit-mask-image: radial-gradient(circle at 50% 26%, #000 0%, transparent 70%);
+              mask-image: radial-gradient(circle at 50% 26%, #000 0%, transparent 70%);
+    }
+    .hero-scrim {
+      background:
+        linear-gradient(180deg, rgba(6,27,21,0) 58%, rgba(3,14,11,0.5) 100%);
+    }
+    .hero-spotlight-beam { top: 23%; left: 50%; width: min(560px, 88%); }
+    .hero-spotlight-beam.beam-2 { top: 19%; left: 50%; width: min(420px, 70%); }
   }
   /* Hero CTA — dark 3D pill in light mode, brighter/white in dark mode */
   .hero-cta .btn {
