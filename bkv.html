@@ -126,19 +126,24 @@
     box-shadow: 0 24px 60px rgba(0,0,0,0.5);
   }
   .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-  /* placeholder state (until the YouTube embed is added) */
-  .video-placeholder {
+  /* 2-Klick-Lösung: nichts von YouTube wird vor dem Klick geladen */
+  .video-trigger {
     position: absolute; inset: 0; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 16px; text-align: center; padding: 24px;
+    align-items: center; justify-content: center; gap: 14px; text-align: center; padding: 28px;
+    width: 100%; height: 100%; background: transparent; border: 0; cursor: pointer; color: inherit;
   }
   .play-badge {
     width: 84px; height: 84px; border-radius: 999px;
     display: flex; align-items: center; justify-content: center;
     background: var(--gold); color: #0c221c;
     box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+    transition: transform 0.2s ease;
   }
   .play-badge svg { width: 32px; height: 32px; margin-left: 4px; }
-  .video-placeholder span { color: var(--muted); font-size: 14px; letter-spacing: 0.04em; }
+  .video-trigger:hover .play-badge { transform: scale(1.06); }
+  .video-trigger .label { color: var(--ink); font-size: 17px; font-weight: 600; letter-spacing: 0.01em; }
+  .video-consent { color: var(--muted); font-size: 12.5px; line-height: 1.5; max-width: 460px; }
+  .video-consent a { color: var(--gold); }
 
   /* CONTENT */
   .prose { max-width: 760px; margin: 0 auto; }
@@ -203,15 +208,14 @@
     </div>
     <div class="video-wrap">
       <div class="video-frame" id="videoBKV">
-        <!-- ====== YOUTUBE-EMBED (BKV) ======
-             Sobald die Video-ID vorliegt, wird der Platzhalter unten durch die
-             datenschutzfreundliche 2-Klick-Lösung (youtube-nocookie.com) ersetzt. -->
-        <div class="video-placeholder">
-          <div class="play-badge" aria-hidden="true">
+        <!-- 2-Klick-Lösung: Video lädt erst nach Klick über youtube-nocookie.com -->
+        <button class="video-trigger" type="button" data-yt="Vo73K2iq0F8" aria-label="Video zur betrieblichen Krankenversicherung abspielen">
+          <span class="play-badge" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-          <span>Video folgt in Kürze</span>
-        </div>
+          </span>
+          <span class="label">Video abspielen</span>
+          <span class="video-consent">Mit Klick wird das Video von YouTube (Google Ireland Ltd.) geladen. Dabei werden Daten an Google übertragen. Mehr dazu in der <a href="/datenschutz">Datenschutzerklärung</a>.</span>
+        </button>
       </div>
     </div>
   </div>
@@ -294,6 +298,21 @@
   </div>
 </footer>
 
+<script>
+  document.querySelectorAll('.video-trigger').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-yt');
+      var frame = btn.closest('.video-frame');
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1';
+      iframe.title = 'Video';
+      iframe.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture; web-share');
+      iframe.setAttribute('allowfullscreen', '');
+      frame.innerHTML = '';
+      frame.appendChild(iframe);
+    });
+  });
+</script>
 <script defer src="/assets/cookie-consent.js?v=1"></script>
 </body>
 </html>
