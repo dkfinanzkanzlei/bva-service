@@ -646,6 +646,52 @@
     background:
       linear-gradient(180deg, rgba(13,52,41,0) 30%, rgba(13,52,41,0.45) 100%);
   }
+  /* ===== Animierter Spotlight (angewinkelter Lichtkegel von oben) ===== */
+  .hero-spotlight {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0;
+    animation: spotlightFade 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+  }
+  .hero-spotlight-beam {
+    position: absolute;
+    top: -28%;
+    left: 50%;
+    width: 78%;
+    height: 135%;
+    transform-origin: top center;
+    transform: translateX(-50%) rotate(-13deg);
+    background:
+      radial-gradient(ellipse 38% 50% at 50% 0%, rgba(208,178,116,0.42), rgba(208,178,116,0.12) 44%, transparent 72%);
+    filter: blur(34px);
+    will-change: transform;
+    animation: spotlightSweep 9s ease-in-out infinite alternate;
+  }
+  /* zweiter, schwächerer Strahl für mehr Tiefe */
+  .hero-spotlight-beam.beam-2 {
+    width: 60%;
+    transform: translateX(-46%) rotate(8deg);
+    background:
+      radial-gradient(ellipse 34% 46% at 50% 0%, rgba(192,149,74,0.22), transparent 70%);
+    filter: blur(48px);
+    animation: spotlightSweep2 11s ease-in-out infinite alternate;
+  }
+  @keyframes spotlightFade { to { opacity: 1; } }
+  @keyframes spotlightSweep {
+    from { transform: translateX(-50%) rotate(-16deg) scale(1); }
+    to   { transform: translateX(-50%) rotate(-9deg)  scale(1.05); }
+  }
+  @keyframes spotlightSweep2 {
+    from { transform: translateX(-46%) rotate(11deg) scale(1.04); }
+    to   { transform: translateX(-46%) rotate(5deg)  scale(1); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-spotlight { opacity: 1; animation: none; }
+    .hero-spotlight-beam { animation: none; }
+  }
   /* Hero CTA — dark 3D pill in light mode, brighter/white in dark mode */
   .hero-cta .btn {
     background: linear-gradient(145deg, #efe8d2 0%, #c0954a 100%) !important;
@@ -2638,6 +2684,10 @@
 <header class="hero" id="heroSection">
   <div class="hero-pin">
     <div class="hero-shader" aria-hidden="true">
+      <div class="hero-spotlight">
+        <div class="hero-spotlight-beam"></div>
+        <div class="hero-spotlight-beam beam-2"></div>
+      </div>
       <div class="hero-scrim"></div>
     </div>
     <div class="container">
