@@ -208,6 +208,47 @@
   .cta-band h2 { font-size: clamp(26px, 4vw, 42px); line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 16px; }
   .cta-band p { color: var(--muted); font-size: 17px; max-width: 560px; margin: 0 auto 30px; }
 
+  /* ===== KONTAKT-FORMULAR ===== */
+  .contact-section { background: var(--bg-alt); }
+  .form-card {
+    max-width: 640px; margin: 0 auto;
+    background: var(--paper);
+    border: 2px solid var(--gold-deep);
+    padding: 48px; border-radius: 22px;
+  }
+  .form-card h3 { font-size: clamp(24px, 3vw, 30px); margin-bottom: 8px; letter-spacing: -0.025em; }
+  .form-card .sub { color: var(--muted); font-size: 15px; margin-bottom: 32px; }
+  .field { margin-bottom: 20px; }
+  .field label {
+    display: block; font-size: 12px; color: var(--muted);
+    margin-bottom: 8px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600;
+  }
+  .field input, .field select, .field textarea {
+    width: 100%; background: transparent; border: none;
+    border-bottom: 1px solid var(--line); padding: 12px 0;
+    color: var(--ink); font-family: inherit; font-size: 15px;
+    transition: border-color 0.2s; -webkit-appearance: none; appearance: none;
+  }
+  .field input::placeholder, .field textarea::placeholder { color: rgba(185,225,205,0.5); }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none; border-bottom-color: var(--gold);
+  }
+  .field select { cursor: pointer; }
+  .field select option { background: var(--bg); color: var(--ink); }
+  .field textarea { resize: vertical; min-height: 90px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .btn-submit {
+    margin-top: 12px; width: 100%;
+    background: linear-gradient(145deg, #efe8d2 0%, #c0954a 100%);
+    color: #1b6b54; padding: 18px; min-height: 56px;
+    border: none; cursor: pointer; font-weight: 600; font-size: 16px;
+    letter-spacing: -0.01em; border-radius: 999px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.45), inset 0 1px 0 rgba(239,232,210,0.6);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.5); }
+  .btn-submit:active { transform: translateY(1px); }
+
   /* FOOTER */
   footer { background: #081a15; color: var(--muted); padding: 56px 0 40px; border-top: 1px solid var(--line); }
   .footer-grid { display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; margin-bottom: 36px; }
@@ -221,6 +262,8 @@
     .hero { padding: 60px 0 48px; }
     section { padding: 56px 0; }
     .container { padding: 0 20px; }
+    .field-row { grid-template-columns: 1fr; gap: 0; }
+    .form-card { padding: 28px 22px; }
   }
 </style>
 </head>
@@ -231,7 +274,7 @@
     <a href="/" class="logo" aria-label="BVA-Service zur Startseite">
       <img src="assets/logo_bva_center.png?v=2" alt="BVA-Service" />
     </a>
-    <a href="/#kontakt" class="nav-pill"><span class="btn-label">Termin sichern</span> <span class="arrow">→</span></a>
+    <a href="#kontakt" class="nav-pill"><span class="btn-label">Termin sichern</span> <span class="arrow">→</span></a>
   </div>
 </nav>
 
@@ -240,7 +283,7 @@
     <span class="eyebrow">Für Unternehmen</span>
     <h1>Versicherungen für dein Unternehmen</h1>
     <p class="lead">Stärke deinen Betrieb und binde deine Mitarbeiter – mit betrieblicher Vorsorge. Wähle einen Bereich und sieh dir das passende Video an.</p>
-    <a href="/#kontakt" class="btn"><span class="btn-label">Kostenloses Erstgespräch</span> <span class="arrow">→</span></a>
+    <a href="#kontakt" class="btn"><span class="btn-label">Kostenloses Erstgespräch</span> <span class="arrow">→</span></a>
   </div>
 </header>
 
@@ -273,7 +316,54 @@
   <div class="container">
     <h2>Welche Lösung passt zu deinem Betrieb?</h2>
     <p>In einem kostenlosen Erstgespräch finden wir gemeinsam die passende betriebliche Vorsorge für dein Unternehmen.</p>
-    <a href="/#kontakt" class="btn"><span class="btn-label">Kostenloses Erstgespräch</span> <span class="arrow">→</span></a>
+    <a href="#kontakt" class="btn"><span class="btn-label">Kostenloses Erstgespräch</span> <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<section class="contact-section" id="kontakt">
+  <div class="container">
+    <form class="form-card" onsubmit="event.preventDefault(); alert('Danke! Wir melden uns innerhalb von 24 Stunden.');">
+      <h3>Kostenloses Erstgespräch</h3>
+      <p class="sub">Trag dein Unternehmen ein – wir melden uns innerhalb von 24 Stunden, werktags.</p>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="v-vorname">Vorname *</label>
+          <input id="v-vorname" type="text" required />
+        </div>
+        <div class="field">
+          <label for="v-nachname">Nachname *</label>
+          <input id="v-nachname" type="text" required />
+        </div>
+      </div>
+      <div class="field">
+        <label for="v-firma">Unternehmen *</label>
+        <input id="v-firma" type="text" required />
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="v-mail">E-Mail *</label>
+          <input id="v-mail" type="email" required />
+        </div>
+        <div class="field">
+          <label for="v-tel">Telefon *</label>
+          <input id="v-tel" type="tel" required />
+        </div>
+      </div>
+      <div class="field">
+        <label for="v-interesse">Mein Interesse</label>
+        <select id="v-interesse">
+          <option selected>Allgemeine Anfrage</option>
+          <option>Betriebliche Altersvorsorge</option>
+          <option>Betriebliche Krankenversicherung</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="v-msg">Dein Anliegen</label>
+        <textarea id="v-msg" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Anfrage senden →</button>
+    </form>
   </div>
 </section>
 
