@@ -70,14 +70,7 @@
   .logo:hover { border-bottom: none; }
   .logo img { height: 52px; width: auto; display: block; }
   @media (max-width: 640px) { .logo img { height: 42px; } }
-  .nav-cta {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--gold); color: #0c221c; font-weight: 700; font-size: 14px;
-    padding: 11px 20px; border-radius: 999px; border-bottom: none;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-    transition: transform .15s ease, background .2s ease;
-  }
-  .nav-cta:hover { background: var(--gold-deep); color: #0c221c; border-bottom: none; transform: translateY(-1px); }
+  /* Button-Styles (Startseiten-Look) siehe weiter unten */
 
   /* HERO */
   .hero {
@@ -96,16 +89,81 @@
   }
   .hero h1 { font-size: clamp(38px, 6vw, 64px); line-height: 1.05; letter-spacing: -0.035em; margin-bottom: 20px; }
   .hero .lead { max-width: 720px; margin: 0 auto 32px; font-size: clamp(17px, 2vw, 20px); color: var(--muted); line-height: 1.7; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: var(--gold); color: #0c221c; font-weight: 700; font-size: 16px;
-    padding: 16px 30px; border-radius: 999px; border-bottom: none;
-    box-shadow: 0 10px 28px rgba(0,0,0,0.4);
-    transition: transform .15s ease, background .2s ease;
+  /* ===== Buttons wie auf der Startseite: Gradient + Glanz + Shine-Überlauf ===== */
+  .btn, .nav-pill {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 20px 48px; min-height: 60px;
+    background: linear-gradient(145deg, #efe8d2 0%, #c0954a 100%);
+    color: #1b6b54 !important;
+    text-decoration: none; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.4;
+    border-radius: 999px; border: none; border-bottom: none; cursor: pointer;
+    position: relative; overflow: hidden; isolation: isolate;
+    box-shadow:
+      0 10px 28px rgba(0,0,0,0.55),
+      0 2px 6px rgba(0,0,0,0.4),
+      inset 0 1px 0 rgba(239,232,210,0.7),
+      inset 0 -2px 4px rgba(0,0,0,0.18);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.3s ease;
   }
-  .btn:hover { background: var(--gold-deep); color: #0c221c; border-bottom: none; transform: translateY(-2px); }
-  .btn .arrow { transition: transform .2s ease; }
-  .btn:hover .arrow { transform: translateX(4px); }
+  .nav-pill {
+    padding: 14px 32px; font-size: 14.5px; letter-spacing: 0.01em; min-height: auto; line-height: 1.35; white-space: nowrap;
+  }
+  nav .nav-pill {
+    box-shadow:
+      0 3px 10px rgba(0,0,0,0.30),
+      inset 0 1px 0 rgba(239,232,210,0.7),
+      inset 0 -1px 2px rgba(0,0,0,0.15);
+  }
+  nav .nav-pill:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      0 5px 14px rgba(0,0,0,0.35),
+      inset 0 1px 0 rgba(239,232,210,0.8),
+      inset 0 -1px 2px rgba(0,0,0,0.15);
+  }
+  /* glänzendes Top-Highlight */
+  .btn::after, .nav-pill::after {
+    content: ''; position: absolute; top: 1px; left: 4%; right: 4%; height: 45%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0));
+    border-radius: 999px 999px 999px 999px / 999px 999px 50% 50%;
+    pointer-events: none; z-index: 1;
+  }
+  /* durchlaufender Shine-Überlauf */
+  .btn::before, .nav-pill::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 60%; height: 100%;
+    background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,0) 35%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0) 65%, transparent 100%);
+    transform: translateX(-180%) skewX(-18deg);
+    animation: btnShine 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    pointer-events: none; z-index: 0;
+  }
+  .btn:hover::before, .nav-pill:hover::before { animation-duration: 1.6s; }
+  @keyframes btnShine {
+    0%   { transform: translateX(-180%) skewX(-18deg); }
+    55%  { transform: translateX(280%) skewX(-18deg); }
+    100% { transform: translateX(280%) skewX(-18deg); }
+  }
+  .btn > *, .nav-pill > * { position: relative; z-index: 2; }
+  .btn-label, .btn .arrow, .nav-pill .arrow { color: #1b6b54; }
+  .btn .arrow, .nav-pill .arrow { display: inline-block; transition: transform 0.25s; }
+  .btn:hover, .nav-pill:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 16px 36px rgba(0,0,0,0.50),
+      0 3px 8px rgba(0,0,0,0.28),
+      inset 0 1px 0 rgba(255,255,255,0.28),
+      inset 0 -2px 4px rgba(0,0,0,0.45);
+  }
+  .btn:active, .nav-pill:active {
+    transform: translateY(1px);
+    box-shadow:
+      0 4px 12px rgba(0,0,0,0.35),
+      inset 0 1px 0 rgba(255,255,255,0.12),
+      inset 0 -1px 2px rgba(0,0,0,0.55);
+  }
+  .btn:hover .arrow, .nav-pill:hover .arrow { transform: translateX(4px); }
+  @media (prefers-reduced-motion: reduce) {
+    .btn::before, .nav-pill::before { animation: none; display: none; }
+  }
 
   /* SECTIONS */
   section { padding: 72px 0; }
@@ -218,7 +276,7 @@
     <a href="/" class="logo" aria-label="BVA-Service zur Startseite">
       <img src="assets/logo_bva_center.png?v=2" alt="BVA-Service" />
     </a>
-    <a href="/#kontakt" class="nav-cta">Termin sichern <span class="arrow">→</span></a>
+    <a href="/#kontakt" class="nav-pill"><span class="btn-label">Termin sichern</span> <span class="arrow">→</span></a>
   </div>
 </nav>
 
@@ -227,7 +285,7 @@
     <span class="eyebrow">Leistung · Betriebliche Altersvorsorge</span>
     <h1>Betriebliche Altersvorsorge</h1>
     <p class="lead">Mit der betrieblichen Altersvorsorge (BAV) sichern Sie Ihren Mitarbeitern eine zusätzliche Rente – steuer- und sozialabgabenbegünstigt. Ein starkes Extra, das Ihren Betrieb als Arbeitgeber attraktiver macht und gleichzeitig Kosten spart.</p>
-    <a href="/#kontakt" class="btn">Kostenloses Erstgespräch <span class="arrow">→</span></a>
+    <a href="/#kontakt" class="btn"><span class="btn-label">Kostenloses Erstgespräch</span> <span class="arrow">→</span></a>
   </div>
 </header>
 
@@ -288,7 +346,7 @@
   <div class="container">
     <h2>BAV für Ihren Betrieb – unverbindlich prüfen</h2>
     <p>In einem kostenlosen Erstgespräch zeigen wir Ihnen, welche Möglichkeiten die betriebliche Altersvorsorge für Ihr Unternehmen bietet.</p>
-    <a href="/#kontakt" class="btn">Kostenloses Erstgespräch <span class="arrow">→</span></a>
+    <a href="/#kontakt" class="btn"><span class="btn-label">Kostenloses Erstgespräch</span> <span class="arrow">→</span></a>
   </div>
 </section>
 
