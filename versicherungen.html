@@ -248,6 +248,10 @@
   }
   .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.5); }
   .btn-submit:active { transform: translateY(1px); }
+  .btn-submit:disabled { opacity: 0.6; cursor: default; transform: none; }
+  .form-status { margin-top: 16px; font-size: 14.5px; text-align: center; min-height: 1.2em; }
+  .form-status.ok { color: var(--gold); }
+  .form-status.err { color: #ff9b9b; }
 
   /* FOOTER */
   footer { background: #081a15; color: var(--muted); padding: 56px 0 40px; border-top: 1px solid var(--line); }
@@ -322,37 +326,40 @@
 
 <section class="contact-section" id="kontakt">
   <div class="container">
-    <form class="form-card" onsubmit="event.preventDefault(); alert('Danke! Wir melden uns innerhalb von 24 Stunden.');">
+    <form class="form-card">
       <h3>Kostenloses Erstgespräch</h3>
       <p class="sub">Trag dein Unternehmen ein – wir melden uns innerhalb von 24 Stunden, werktags.</p>
+
+      <input type="hidden" name="_subject" value="Neue Anfrage über die Versicherungsseite" />
+      <input type="hidden" name="Seite" value="Versicherungen" />
 
       <div class="field-row">
         <div class="field">
           <label for="v-vorname">Vorname *</label>
-          <input id="v-vorname" type="text" required />
+          <input id="v-vorname" name="Vorname" type="text" autocomplete="given-name" required />
         </div>
         <div class="field">
           <label for="v-nachname">Nachname *</label>
-          <input id="v-nachname" type="text" required />
+          <input id="v-nachname" name="Nachname" type="text" autocomplete="family-name" required />
         </div>
       </div>
       <div class="field">
         <label for="v-firma">Unternehmen *</label>
-        <input id="v-firma" type="text" required />
+        <input id="v-firma" name="Unternehmen" type="text" autocomplete="organization" required />
       </div>
       <div class="field-row">
         <div class="field">
           <label for="v-mail">E-Mail *</label>
-          <input id="v-mail" type="email" required />
+          <input id="v-mail" name="email" type="email" autocomplete="email" required />
         </div>
         <div class="field">
           <label for="v-tel">Telefon *</label>
-          <input id="v-tel" type="tel" required />
+          <input id="v-tel" name="Telefon" type="tel" autocomplete="tel" required />
         </div>
       </div>
       <div class="field">
         <label for="v-interesse">Mein Interesse</label>
-        <select id="v-interesse">
+        <select id="v-interesse" name="Interesse">
           <option selected>Allgemeine Anfrage</option>
           <option>Betriebliche Altersvorsorge</option>
           <option>Betriebliche Krankenversicherung</option>
@@ -360,9 +367,10 @@
       </div>
       <div class="field">
         <label for="v-msg">Dein Anliegen</label>
-        <textarea id="v-msg" rows="3"></textarea>
+        <textarea id="v-msg" name="Anliegen" rows="3"></textarea>
       </div>
       <button type="submit" class="btn-submit">Anfrage senden →</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
     </form>
   </div>
 </section>
@@ -403,5 +411,40 @@
 </footer>
 
 <script defer src="/assets/cookie-consent.js?v=1"></script>
+<script>
+  (function () {
+    // ▼▼▼ Formspree-Endpoint hier eintragen (https://formspree.io/f/XXXXXXX) ▼▼▼
+    var FORMSPREE_ENDPOINT = 'https://formspree.io/f/mlgylayy';
+    document.querySelectorAll('form.form-card').forEach(function (form) {
+      form.setAttribute('action', FORMSPREE_ENDPOINT);
+      form.setAttribute('method', 'POST');
+      var status = form.querySelector('.form-status');
+      var btn = form.querySelector('.btn-submit');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (FORMSPREE_ENDPOINT.indexOf('YOUR_FORM_ID') !== -1) {
+          if (status) { status.textContent = 'Formular ist noch nicht verbunden. Bitte schreib an info@bva-service.de.'; status.className = 'form-status err'; }
+          return;
+        }
+        var label = btn.textContent;
+        btn.disabled = true; btn.textContent = 'Wird gesendet …';
+        if (status) { status.textContent = ''; status.className = 'form-status'; }
+        fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+          .then(function (res) {
+            if (res.ok) {
+              form.reset();
+              if (status) { status.textContent = 'Danke! Wir melden uns innerhalb von 24 Stunden.'; status.className = 'form-status ok'; }
+            } else {
+              if (status) { status.textContent = 'Es gab ein Problem. Bitte versuche es erneut oder schreib an info@bva-service.de.'; status.className = 'form-status err'; }
+            }
+          })
+          .catch(function () {
+            if (status) { status.textContent = 'Netzwerkfehler. Bitte versuche es erneut oder schreib an info@bva-service.de.'; status.className = 'form-status err'; }
+          })
+          .finally(function () { btn.disabled = false; btn.textContent = label; });
+      });
+    });
+  })();
+</script>
 </body>
 </html>
