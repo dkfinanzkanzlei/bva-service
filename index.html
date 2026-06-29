@@ -1550,6 +1550,25 @@
     background: var(--gold);
     border-radius: 1px;
   }
+  /* ===== Spezialleistungen: verlinkte BAV/BKV-Karten ===== */
+  .solutions-head { margin: 56px 0 22px; text-align: center; }
+  .solutions-head h3 { font-size: clamp(22px, 3vw, 30px); font-weight: 600; letter-spacing: -0.025em; margin-bottom: 10px; color: var(--ink); }
+  .solutions-head p { color: var(--ink-soft); font-size: 16px; max-width: 620px; margin: 0 auto; }
+  .solutions-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .solution-card {
+    display: flex; flex-direction: column; gap: 10px;
+    background: var(--paper); border: 2px solid var(--accent-blue); border-radius: 22px;
+    padding: 40px 44px; text-decoration: none; color: inherit; border-bottom: 2px solid var(--accent-blue);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  }
+  .solution-card:hover { transform: translateY(-3px); border-color: var(--gold); box-shadow: 0 14px 40px rgba(0,0,0,0.22); }
+  .solution-card .ey { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-deep); font-weight: 700; }
+  .solution-card h4 { font-size: clamp(24px, 3vw, 30px); font-weight: 600; letter-spacing: -0.025em; line-height: 1.12; color: var(--ink); margin: 2px 0 4px; }
+  .solution-card p { color: var(--ink-soft); font-size: 16px; line-height: 1.5; }
+  .solution-card .more { margin-top: 8px; color: var(--gold); font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
+  .solution-card .more .arrow { transition: transform 0.2s ease; }
+  .solution-card:hover .more .arrow { transform: translateX(4px); }
+  @media (max-width: 760px) { .solutions-grid { grid-template-columns: 1fr; } }
 
   /* ============ ANTWORTEN (Fragen nacheinander) ============ */
   .answers { background: var(--bg); }
@@ -3011,6 +3030,25 @@
           <li>Übernahme der Vermittlungskosten zu relevanten Stellen</li>
         </ul>
       </div>
+    </div>
+
+    <div class="solutions-head reveal">
+      <h3>Betriebliche Vorsorge für Ihre Mitarbeiter</h3>
+      <p>Als Versicherungsvermittler beraten und vermitteln wir auch direkt — verständlich erklärt im Video auf der jeweiligen Seite.</p>
+    </div>
+    <div class="solutions-grid reveal">
+      <a class="solution-card" href="/bav">
+        <span class="ey">Versicherungsvermittlung</span>
+        <h4>Betriebliche Altersvorsorge</h4>
+        <p>Zusätzliche Rente für Ihre Mitarbeiter — steuer- und sozialabgabenbegünstigt, mit Arbeitgeberzuschuss.</p>
+        <span class="more">Mehr erfahren <span class="arrow">→</span></span>
+      </a>
+      <a class="solution-card" href="/bkv">
+        <span class="ey">Versicherungsvermittlung</span>
+        <h4>Betriebliche Krankenversicherung</h4>
+        <p>Privater Gesundheitsschutz als Zusatzleistung — meist ohne Gesundheitsprüfung, planbar und attraktiv.</p>
+        <span class="more">Mehr erfahren <span class="arrow">→</span></span>
+      </a>
     </div>
   </div>
 </section>
