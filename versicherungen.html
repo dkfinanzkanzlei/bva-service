@@ -168,14 +168,13 @@
 
   /* ===== Produktkarten (BAV / BKV) ===== */
   @property --bd-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
-  .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 960px; margin: 0 auto; }
+  .products { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch; max-width: 1080px; margin: 0 auto; }
   .product-card {
     position: relative; display: flex; flex-direction: column; gap: 14px;
     background: var(--paper); border: 2px solid var(--gold-deep); border-radius: 22px;
     padding: 40px 36px; text-decoration: none; color: inherit; overflow: hidden;
     transition: transform 0.35s ease, box-shadow 0.35s ease;
   }
-  .product-card:hover { transform: translateY(-4px); box-shadow: 0 18px 48px rgba(0,0,0,0.30); border-bottom-color: var(--gold-deep); }
   .product-card > * { position: relative; z-index: 1; }
   .product-card::before {
     content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
@@ -193,15 +192,20 @@
   .product-card .pic { width: 54px; height: 54px; border-radius: 14px; background: rgba(208,178,116,0.16); color: var(--gold); display: flex; align-items: center; justify-content: center; }
   .product-card .pic svg { width: 28px; height: 28px; }
   .product-card .tag { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-deep); font-weight: 700; }
-  .product-card h3 { font-size: clamp(22px, 2.6vw, 28px); letter-spacing: -0.025em; line-height: 1.12; }
-  .product-card p { color: var(--ink-soft); font-size: 16px; line-height: 1.6; flex: 1; }
-  .product-card .watch { margin-top: 8px; display: inline-flex; align-items: center; gap: 12px; color: var(--gold); font-weight: 600; }
-  .product-card .watch .play { width: 34px; height: 34px; border-radius: 999px; background: var(--gold); color: #0c221c; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
-  .product-card .watch .play svg { width: 15px; height: 15px; margin-left: 2px; }
-  .product-card .watch .arrow { transition: transform 0.25s ease; }
-  .product-card:hover .watch .arrow { transform: translateX(4px); }
+  .product-card h3 { font-size: clamp(22px, 2.6vw, 28px); letter-spacing: -0.025em; line-height: 1.12; min-height: 2.24em; }
+  .product-card p { color: var(--ink-soft); font-size: 16px; line-height: 1.6; }
+  .product-card h3 + p { min-height: 3.2em; }
+  .video-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; margin: 6px 0 2px; border-radius: 14px; overflow: hidden; background: #000; border: 1px solid var(--line); }
+  .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .example { margin-top: auto; background: rgba(208,178,116,0.08); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; }
+  .example h4 { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 14px; font-weight: 700; }
+  .example .row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; font-size: 15.5px; padding: 8px 0; border-bottom: 1px dashed rgba(56,145,111,0.4); color: var(--muted); }
+  .example .row span:last-child { color: var(--ink); font-weight: 600; white-space: nowrap; }
+  .example .row.total { border-bottom: none; margin-top: 4px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 17px; }
+  .example .row.total span:first-child { font-weight: 700; color: var(--ink); }
+  .example .hint { margin-top: 14px; font-size: 13px; line-height: 1.6; color: var(--muted); }
   @media (prefers-reduced-motion: reduce) { .product-card::before { animation: none; } }
-  @media (max-width: 720px) { .product-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 760px) { .products { grid-template-columns: 1fr; gap: 44px; } }
 
   /* CTA BAND */
   .cta-band { text-align: center; background: var(--bg-alt); }
@@ -295,23 +299,52 @@
   <div class="container">
     <div class="section-head">
       <h2>Unsere betriebliche Vorsorge</h2>
-      <p>Klicke auf einen Bereich und schau dir das passende Erklärvideo an.</p>
+      <p>Sieh dir die Erklärvideos an – mit kurzer Erklärung und Beispielrechnung zu jedem Bereich.</p>
     </div>
-    <div class="product-grid">
-      <a class="product-card" href="/bav">
+    <div class="products">
+
+      <div class="product-card">
         <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
         <span class="tag">Betriebliche Vorsorge</span>
         <h3>Betriebliche Altersvorsorge</h3>
         <p>Zusätzliche Rente für deine Mitarbeiter – steuer- und sozialabgabenbegünstigt, mit Arbeitgeberzuschuss.</p>
-        <span class="watch"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span> Video ansehen <span class="arrow">→</span></span>
-      </a>
-      <a class="product-card" href="/bkv">
+
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/4velQF7cjMk?rel=0&amp;modestbranding=1" title="Erklärvideo betriebliche Altersvorsorge" loading="lazy" allow="encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+
+        <p>Die betriebliche Altersvorsorge ist eine vom Arbeitgeber unterstützte Zusatzrente: Ein Teil des Bruttogehalts fließt – ergänzt um den gesetzlich vorgeschriebenen Arbeitgeberzuschuss von 15 % – in die Altersvorsorge des Mitarbeiters. Weil die Beiträge aus dem unversteuerten, sozialabgabenfreien Bruttoentgelt stammen, sparen Mitarbeiter und Betrieb gleichermaßen.</p>
+
+        <div class="example">
+          <h4>Beispielrechnung</h4>
+          <div class="row"><span>Entgeltumwandlung (brutto)</span><span>100 € / Monat</span></div>
+          <div class="row"><span>+ 15 % Arbeitgeberzuschuss</span><span>15 € / Monat</span></div>
+          <div class="row total"><span>Sparbeitrag im Vertrag</span><span>115 € / Monat</span></div>
+          <p class="hint">Tatsächlicher Netto-Aufwand des Mitarbeiters durch die Steuer- und Sozialabgabenersparnis: nur rund 50 €. Beispielwerte – abhängig von Gehalt und Steuerklasse.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
         <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
         <span class="tag">Betriebliche Vorsorge</span>
         <h3>Betriebliche Krankenversicherung</h3>
         <p>Privater Gesundheitsschutz als Zusatzleistung – meist ohne Gesundheitsprüfung, planbar und attraktiv.</p>
-        <span class="watch"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span> Video ansehen <span class="arrow">→</span></span>
-      </a>
+
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/Vo73K2iq0F8?rel=0&amp;modestbranding=1" title="Erklärvideo betriebliche Krankenversicherung" loading="lazy" allow="encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+
+        <p>Die betriebliche Krankenversicherung ist eine vom Arbeitgeber finanzierte private Zusatzversicherung – etwa für Zahnersatz, Sehhilfen, Vorsorge, Heilpraktiker oder den Krankenhausaufenthalt. Als Gruppenvertrag meist ohne individuelle Gesundheitsprüfung und ohne Wartezeiten, mit planbaren Kosten für den Betrieb.</p>
+
+        <div class="example">
+          <h4>Beispielrechnung</h4>
+          <div class="row"><span>Beitrag pro Mitarbeiter</span><span>20 € / Monat</span></div>
+          <div class="row"><span>Steuerfrei als Sachbezug bis</span><span>50 € / Monat</span></div>
+          <div class="row total"><span>Erstattung Zahnersatz</span><span>1.800 € (90 %)</span></div>
+          <p class="hint">Bei einer Rechnung von 2.000 € erstattet die BKV im Beispiel 90 %. Für den Betrieb voll als Betriebsausgabe absetzbar. Beispielwerte – je nach Tarif.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
