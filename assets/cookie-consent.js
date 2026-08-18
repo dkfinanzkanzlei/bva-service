@@ -1,4 +1,4 @@
-/* ===== BVA-Service · Cookie-Consent (DSGVO, selbst-enthalten) ===== */
+/* ===== BVA-Consulting · Cookie-Consent (DSGVO, selbst-enthalten) ===== */
 (function () {
   'use strict';
 
