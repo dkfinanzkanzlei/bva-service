@@ -26,6 +26,10 @@
   ],
   "rewrites": [
     {
+      "source": "/beratung",
+      "destination": "/beratung.html"
+    },
+    {
       "source": "/versicherungen",
       "destination": "/versicherungen.html"
     },
