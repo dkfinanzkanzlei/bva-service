@@ -26,6 +26,10 @@
   ],
   "rewrites": [
     {
+      "source": "/webseiten",
+      "destination": "/webseiten.html"
+    },
+    {
       "source": "/meta-ads",
       "destination": "/meta-ads.html"
     },
