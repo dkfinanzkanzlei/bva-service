@@ -26,6 +26,10 @@
   ],
   "rewrites": [
     {
+      "source": "/meta-ads",
+      "destination": "/meta-ads.html"
+    },
+    {
       "source": "/beratung",
       "destination": "/beratung.html"
     },

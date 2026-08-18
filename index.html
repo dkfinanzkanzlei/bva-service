@@ -1641,9 +1641,9 @@
   .solution-card .ey { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-deep); font-weight: 700; }
   .solution-card h4 { font-size: clamp(24px, 3vw, 30px); font-weight: 600; letter-spacing: -0.025em; line-height: 1.12; color: var(--ink); margin: 2px 0 4px; }
   .solution-card p { color: var(--ink-soft); font-size: 16px; line-height: 1.5; }
-  .solution-card .more { margin-top: 8px; color: var(--gold); font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
-  .solution-card .more .arrow { transition: transform 0.2s ease; }
-  .solution-card:hover .more .arrow { transform: translateX(4px); }
+  .solution-card .more, .service-card .more { margin-top: 8px; color: var(--gold); font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
+  .solution-card .more .arrow, .service-card .more .arrow { transition: transform 0.2s ease; }
+  .solution-card:hover .more .arrow, .service-card:hover .more .arrow { transform: translateX(4px); }
   @media (max-width: 760px) { .solutions-grid { grid-template-columns: 1fr; } }
   /* ===== Animierte Gold-Umrandung (laufender Lichtpunkt) auf Karten ===== */
   @property --bd-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
@@ -2791,8 +2791,8 @@
       <img src="assets/logo_bva_center.png?v=2" alt="BVA-Consulting Logo" />
     </a>
     <div class="nav-side nav-right" id="navRight">
+      <a href="/meta-ads">Meta-Ads</a>
       <a href="/beratung">Beratung</a>
-      <a href="/versicherungen">Versicherungen</a>
       <a href="#kontakt" class="nav-pill"><span class="btn-label">Termin sichern</span> <span class="arrow">→</span></a>
     </div>
     <button class="mobile-toggle" id="mobileToggle" aria-label="Menü">
@@ -3115,6 +3115,7 @@
           <li>Tracking sauber aufgesetzt, damit Zahlen auch stimmen</li>
           <li>Laufende Optimierung statt einmal einrichten und liegen lassen</li>
         </ul>
+        <a href="/meta-ads" class="more">Alles zu Meta-Ads <span class="arrow">→</span></a>
       </div>
 
       <div class="service-card">
@@ -3362,7 +3363,8 @@
       </div>
       <div class="footer-col">
         <h5>Leistungen</h5>
-        <a href="#leistungen">Webseiten & Performance-Marketing</a>
+        <a href="/meta-ads">Meta-Ads & Performance</a>
+        <a href="#leistungen">Webseiten & Sichtbarkeit</a>
         <a href="/beratung">Förder- & Einsparanalyse</a>
         <a href="/versicherungen">Betriebliche Vorsorge</a>
       </div>
